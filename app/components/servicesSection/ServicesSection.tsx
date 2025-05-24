@@ -39,7 +39,7 @@ export default function ServicesSection() {
           </h1>
         </div>
         <div className="flex flex-wrap justify-center gap-8">
-          {services.map((service, idx) => (
+          {services.map((service) => (
             <div
               key={service.title}
               className="animate-on-scroll fade-in-up group relative w-full overflow-visible bg-[#23272b] shadow-lg sm:w-[350px]"
