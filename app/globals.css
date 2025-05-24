@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
+@import "./styles/animations.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Estilo para o bullet de paginação ativo do Swiper */
+.swiper-pagination-custom .swiper-pagination-bullet-active {
+  @apply scale-125 bg-blue-500;
+  /* Cor e tamanho do bullet ativo */
+}
+
+/* Ajuste de posicionamento dos textos em telas grandes durante a rolagem */
+@media (min-width: 1024px) {
+  .scroll-text-adjust {
+    transform: translateY(-6px);
+    transition: transform 0.3s ease;
+  }
+}
+
+/* Ajuste de posicionamento dos textos em telas normais */
+.text-normal-adjust {
+  transform: translateY(-4px);
+  transition: transform 0.3s ease;
+}
+
+/* Animações de entrada para o texto do slide */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideInUp {
+  animation: slideInUp 0.6s ease-out forwards;
+  opacity: 0;
+  /* Começa invisível até a animação rodar */
+}
+
+/* Utilitários de delay para animação (opcional, mas útil) */
+.animation-delay-300 {
+  animation-delay: 0.3s;
+}
+
+.animation-delay-600 {
+  animation-delay: 0.6s;
+}
