@@ -1,5 +1,6 @@
 // ServicesSection.jsx
 import "animate.css";
+import Image from "next/image";
 
 const services = [
   {
@@ -44,25 +45,33 @@ export default function ServicesSection() {
           {services.map((service, idx) => (
             <div
               key={service.title}
-              className="group animate__animated animate__fadeInUp relative w-full overflow-visible rounded-xl bg-[#23272b] shadow-lg sm:w-[350px]"
+              className="group animate__animated animate__fadeInUp relative w-full overflow-visible bg-[#23272b] shadow-lg sm:w-[350px]"
               style={{ animationDelay: `${0.1 + idx * 0.2}s` }}
             >
               {/* Container da imagem */}
               <div className="relative flex h-56 w-full items-center justify-center overflow-hidden">
                 {/* Miniatura centralizada sobre a imagem */}
-                <img
+                <Image
                   src={service.img}
                   alt={`Miniatura de ${service.title}`}
-                  className="absolute top-1/2 left-1/2 z-20 h-[100px] w-[100px] -translate-x-1/2 -translate-y-1/2 rounded border-2 border-white object-cover opacity-100 shadow transition-all duration-500 group-hover:opacity-0"
+                  width={100}
+                  height={100}
+                  className="absolute top-1/2 left-1/2 z-20 h-[100px] w-[100px] -translate-x-1/2 -translate-y-1/2 border-2 border-white object-cover opacity-100 shadow transition-all duration-500 group-hover:opacity-0"
+                  style={{ objectFit: "cover" }}
+                  priority
                 />
                 {/* Imagem principal com efeito */}
-                <img
+                <Image
                   src={service.img2}
                   alt={service.title}
+                  fill
                   className="h-56 w-full translate-y-8 object-cover opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100"
+                  style={{ objectFit: "cover" }}
+                  sizes="(max-width: 350px) 100vw, 350px"
                 />
+                {/* Overlay escuro ajustado para não capturar eventos do mouse */}
+                <div className="pointer-events-none absolute inset-0 z-10 bg-black/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
               </div>
-              <div className="absolute inset-0 z-10 bg-black/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
               <div className="relative z-20 flex flex-col items-center px-6 py-8">
                 <div className="flex w-full flex-col items-center">
                   <div className="mb-4 flex w-full items-center justify-center gap-2">
@@ -75,7 +84,7 @@ export default function ServicesSection() {
                   <p className="mb-6 text-center text-white">{service.desc}</p>
                   <a
                     href={service.link}
-                    className="text-primary hover:bg-primary inline-block rounded bg-white px-6 py-2 font-semibold shadow transition-all duration-300 hover:text-white"
+                    className="hover:bg-primary inline-block bg-white px-6 py-2 font-semibold text-blue-900 shadow transition-all duration-300 hover:text-white"
                   >
                     Leia Mais
                   </a>
