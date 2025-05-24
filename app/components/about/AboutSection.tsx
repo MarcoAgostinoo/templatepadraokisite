@@ -11,7 +11,7 @@ const AboutSection = () => {
             <div className="-mx-3 flex h-full">
               <div className="animate-on-scroll fade-in-right w-1/2 self-start px-3">
                 <img
-                  className="h-auto w-full rounded-lg object-cover shadow-lg"
+                  className="hover-scale h-auto w-full rounded-lg object-cover shadow-lg transition-all"
                   src="/about1.jpg"
                   alt="About Us"
                   width={500}
@@ -20,7 +20,7 @@ const AboutSection = () => {
               </div>
               <div className="animate-on-scroll fade-in-left w-1/2 self-end px-3">
                 <img
-                  className="h-auto w-full rounded-lg object-cover shadow-lg"
+                  className="hover-scale h-auto w-full rounded-lg object-cover shadow-lg transition-all"
                   src="/about2.jpg"
                   alt="About Us"
                   width={500}
@@ -32,13 +32,13 @@ const AboutSection = () => {
 
           {/* Right column with content */}
           <div className="animate-on-scroll fade-in-up w-full px-4 lg:w-1/2">
-            <p className="mb-2 font-medium text-orange-500 uppercase">
+            <p className="animate-on-scroll fade-in-up mb-2 font-medium text-orange-500 uppercase">
               Sobre Nós
             </p>
-            <h1 className="mb-4 text-5xl font-bold text-blue-900">
+            <h1 className="animate-on-scroll fade-in-up mb-4 text-5xl font-bold text-blue-900">
               Somos Líderes no Mercado Industrial
             </h1>
-            <p className="mb-4 text-gray-600">
+            <p className="animate-on-scroll fade-in-up mb-4 text-gray-600">
               Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
               diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet
               lorem sit clita duo justo magna dolore erat amet
@@ -46,37 +46,37 @@ const AboutSection = () => {
 
             {/* Experience box with list */}
             <div className="mb-4 flex items-center">
-              <div className="animate-on-scroll scale-in flex-shrink-0 rounded-lg bg-blue-900 p-8">
+              <div className="animate-on-scroll scale-in hover-shadow flex-shrink-0 rounded-lg bg-blue-900 p-8 transition-all">
                 <h1 className="text-7xl font-bold text-orange-500">25</h1>
                 <h5 className="text-xl font-bold text-orange-500">Anos de</h5>
                 <h5 className="font-bold text-orange-500">Experiência</h5>
               </div>
               <div className="ml-4">
-                <p className="animate-on-scroll fade-in-right mb-4">
+                <p className="animate-on-scroll fade-in-right hover-scale mb-4 transition-all">
                   <span className="mr-2 inline-block">
                     <FaCheck size={20} color="#f97316" />
                   </span>
                   Energia & Potência
                 </p>
-                <p className="animate-on-scroll fade-in-right mb-4">
+                <p className="animate-on-scroll fade-in-right hover-scale mb-4 transition-all">
                   <span className="mr-2 inline-block">
                     <FaCheck size={20} color="#f97316" />
                   </span>
                   Engenharia Civil
                 </p>
-                <p className="animate-on-scroll fade-in-right mb-4">
+                <p className="animate-on-scroll fade-in-right hover-scale mb-4 transition-all">
                   <span className="mr-2 inline-block">
                     <FaCheck size={20} color="#f97316" />
                   </span>
                   Engenharia Química
                 </p>
-                <p className="animate-on-scroll fade-in-right mb-4">
+                <p className="animate-on-scroll fade-in-right hover-scale mb-4 transition-all">
                   <span className="mr-2 inline-block">
                     <FaCheck size={20} color="#f97316" />
                   </span>
                   Engenharia Mecânica
                 </p>
-                <p className="animate-on-scroll fade-in-right mb-0">
+                <p className="animate-on-scroll fade-in-right hover-scale mb-0 transition-all">
                   <span className="mr-2 inline-block">
                     <FaCheck size={20} color="#f97316" />
                   </span>
@@ -88,8 +88,8 @@ const AboutSection = () => {
             {/* Contact information */}
             <div className="-mx-2 flex flex-wrap pt-2">
               <div className="w-full px-2 sm:w-1/2">
-                <div className="animate-on-scroll fade-in-up flex items-center">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-600">
+                <div className="animate-on-scroll fade-in-up hover-scale flex items-center transition-all">
+                  <div className="hover-shadow flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-600 transition-all">
                     <FaEnvelope size={20} color="white" />
                   </div>
                   <div className="ml-3">
@@ -102,8 +102,8 @@ const AboutSection = () => {
               </div>
 
               <div className="w-full px-2 sm:w-1/2">
-                <div className="animate-on-scroll fade-in-up flex items-center">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-900">
+                <div className="animate-on-scroll fade-in-up hover-scale flex items-center transition-all">
+                  <div className="hover-shadow flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-900 transition-all">
                     <FaPhone size={20} color="white" />
                   </div>
                   <div className="ml-3">

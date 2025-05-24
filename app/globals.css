@@ -5,6 +5,46 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Animações base */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  visibility: hidden;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.fade-in-down {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  visibility: hidden;
+}
+
+.fade-in-down.visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  visibility: hidden;
+}
+
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible;
+}
+
 /* Estilo para o bullet de paginação ativo do Swiper */
 .swiper-pagination-custom .swiper-pagination-bullet-active {
   @apply scale-125 bg-blue-500;
@@ -51,4 +91,37 @@
 
 .animation-delay-600 {
   animation-delay: 0.6s;
+}
+
+/* Classes de animação para elementos específicos */
+.animate-on-scroll {
+  opacity: 0;
+  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+}
+
+/* Efeitos de hover */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Efeitos de transição suave */
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* Efeitos de sombra */
+.hover-shadow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }

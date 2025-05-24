@@ -17,16 +17,30 @@ export function FooTer() {
             src="https://flowbite.com/docs/images/logo.svg"
             alt="Flowbite Logo"
             name="Flowbite"
+            className="animate-on-scroll fade-in-up transition-all hover:scale-105"
           />
-          <FooterLinkGroup>
-            <FooterLink href="#">About</FooterLink>
-            <FooterLink href="#">Privacy Policy</FooterLink>
-            <FooterLink href="#">Licensing</FooterLink>
-            <FooterLink href="#">Contact</FooterLink>
+          <FooterLinkGroup className="animate-on-scroll fade-in-up">
+            <FooterLink href="#" className="transition-all hover:scale-105">
+              About
+            </FooterLink>
+            <FooterLink href="#" className="transition-all hover:scale-105">
+              Privacy Policy
+            </FooterLink>
+            <FooterLink href="#" className="transition-all hover:scale-105">
+              Licensing
+            </FooterLink>
+            <FooterLink href="#" className="transition-all hover:scale-105">
+              Contact
+            </FooterLink>
           </FooterLinkGroup>
         </div>
         <FooterDivider />
-        <FooterCopyright href="#" by="Flowbite™" year={2022} />
+        <FooterCopyright
+          href="#"
+          by="Flowbite™"
+          year={2022}
+          className="animate-on-scroll fade-in-up transition-all hover:scale-105"
+        />
       </div>
     </Footer>
   );

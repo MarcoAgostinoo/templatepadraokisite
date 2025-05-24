@@ -25,40 +25,41 @@ export function NavBar() {
 
   return (
     <div className="flex h-12 text-white">
-      <div className="relative overflow-hidden md:overflow-visible w-8/12 bg-blue-900">
+      <div className="relative w-8/12 overflow-hidden bg-blue-900 md:overflow-visible">
         <div className="absolute top-0 right-0 h-full w-16 -skew-x-35 transform bg-blue-900 p-16"></div>
         <div className="flex">
-                  <p className="font- relative z-10 mt-2 ml-8 text-xl font-bold">
-          Siga-nos:{" "}
-        </p>
-        <div className="flex gap-3 mt-3 ml-4">
-          <Link
-            href="https://instagram.com"
-            target="_blank"
-            className="transition-colors hover:text-gray-200"
-          >
-            <FaInstagram size={24} />
-          </Link>
-          <Link
-            href="https://facebook.com"
-            target="_blank"
-            className="transition-colors hover:text-gray-200"
-          >
-            <FaFacebook size={24} />
-          </Link>
-          <Link
-            href="https://linkedin.com"
-            target="_blank"
-            className="transition-colors hover:text-gray-200"
-          >
-            <FaLinkedin size={24} />
-          </Link>
+          <p className="font- animate-on-scroll fade-in-up relative z-10 mt-2 ml-8 text-xl font-bold">
+            Siga-nos:{" "}
+          </p>
+          <div className="mt-3 ml-4 flex gap-3">
+            <Link
+              href="https://instagram.com"
+              target="_blank"
+              className="transition-all hover:scale-110 hover:text-gray-200"
+            >
+              <FaInstagram size={24} />
+            </Link>
+            <Link
+              href="https://facebook.com"
+              target="_blank"
+              className="transition-all hover:scale-110 hover:text-gray-200"
+            >
+              <FaFacebook size={24} />
+            </Link>
+            <Link
+              href="https://linkedin.com"
+              target="_blank"
+              className="transition-all hover:scale-110 hover:text-gray-200"
+            >
+              <FaLinkedin size={24} />
+            </Link>
+          </div>
         </div>
-        </div>
-
       </div>
       <div className="w-4/12 bg-orange-500">
-        <p className="mt-2 ml-16 text-xl font-bold">Telefone: 91907-2390 </p>
+        <p className="animate-on-scroll fade-in-up mt-2 ml-16 text-xl font-bold">
+          Telefone: 91907-2390{" "}
+        </p>
       </div>
       <Navbar
         fluid
@@ -69,7 +70,11 @@ export function NavBar() {
         }`}
       >
         <div className="container mx-auto flex flex-wrap items-center justify-between px-0 py-3">
-          <NavbarBrand as={Link} href="/">
+          <NavbarBrand
+            as={Link}
+            href="/"
+            className="animate-on-scroll fade-in-up"
+          >
             <span
               className={`bg-gradient-to-r ${isScrolled ? "scroll-text-adjust from-orange-400 to-orange-500" : "from-blue-200 to-indigo-300"} bg-clip-text text-4xl font-bold text-transparent brightness-110 contrast-125 filter transition-all duration-300 hover:scale-105 hover:from-blue-800 hover:to-indigo-800 hover:brightness-125 dark:from-blue-300 dark:to-indigo-200 dark:hover:from-blue-800 dark:hover:to-indigo-800`}
             >
@@ -79,20 +84,20 @@ export function NavBar() {
 
           <div className="flex items-center gap-3 lg:order-last">
             {/* Dark Mode Toggle */}
-            <DarkThemeToggle className="rounded-full bg-white/50 p-2 hover:bg-gray-100 focus:ring-2 focus:ring-blue-300 focus:outline-none dark:bg-gray-800/50 dark:hover:bg-gray-700 dark:focus:ring-blue-600" />
+            <DarkThemeToggle className="rounded-full bg-white/50 p-2 transition-all hover:scale-110 hover:bg-gray-100 focus:ring-2 focus:ring-blue-300 focus:outline-none dark:bg-gray-800/50 dark:hover:bg-gray-700 dark:focus:ring-blue-600" />
 
             {/* Sign In Button - Desktop */}
             <div className="hidden md:block">
               <Link
                 href="/login"
-                className="rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2 font-medium text-white shadow-md transition-all hover:from-blue-700 hover:to-indigo-700"
+                className="rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2 font-medium text-white shadow-md transition-all hover:scale-105 hover:from-blue-700 hover:to-indigo-700 hover:shadow-lg"
               >
                 Sign In
               </Link>
             </div>
 
             {/* Mobile Menu Toggle */}
-            <NavbarToggle className="lg:hidden" />
+            <NavbarToggle className="transition-all hover:scale-110 lg:hidden" />
           </div>
 
           <NavbarCollapse className="lg:order-1 lg:flex">
@@ -147,7 +152,7 @@ export function NavBar() {
               <div className="pt-2 lg:hidden">
                 <Link
                   href="/login"
-                  className="inline-block w-full rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2.5 text-center font-medium text-white transition-all"
+                  className="inline-block w-full rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2.5 text-center font-medium text-white transition-all hover:scale-105 hover:shadow-lg"
                 >
                   Sign In
                 </Link>
@@ -172,7 +177,7 @@ function NavItem({ href, children, isActive, isScrolled }: NavItemProps) {
   return (
     <Link
       href={href}
-      className={`group relative block py-2 text-lg font-semibold lg:py-1 ${
+      className={`group relative block py-2 text-lg font-semibold transition-all hover:scale-105 lg:py-1 ${
         isScrolled
           ? isActive
             ? "text-blue-700 drop-shadow-[0_1px_2px_rgba(0,0,0,0.1)] dark:text-blue-300"

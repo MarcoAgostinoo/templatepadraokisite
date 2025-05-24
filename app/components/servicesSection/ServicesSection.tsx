@@ -1,0 +1,90 @@
+// ServicesSection.jsx
+import "animate.css";
+
+const services = [
+  {
+    img: "/about1.jpg",
+    img2: "/sectionServices1.jpg",
+    title: "Engenharia Civil e de Gás",
+    desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
+    link: "#",
+  },
+  {
+    img: "/about1.jpg",
+    img2: "/sectionServices2.jpg",
+    title: "Engenharia de Energia & Potência",
+    desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
+    link: "#",
+  },
+  {
+    img: "/about2.jpg",
+    img2: "/sectionServices3.jpg",
+    title: "Encanamento & Tratamento de Água",
+    desc: "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
+    link: "#",
+  },
+];
+
+export default function ServicesSection() {
+  return (
+    <section className="w-full bg-white py-16">
+      <div className="container mx-auto px-4">
+        <div
+          className="animate__animated animate__fadeInUp mx-auto max-w-xl pb-8 text-center"
+          style={{ animationDelay: "0.1s" }}
+        >
+          <p className="text-primary mb-2 font-medium tracking-widest uppercase">
+            Nossos Serviços
+          </p>
+          <h1 className="mb-4 text-4xl font-bold md:text-5xl">
+            Nós Fornecemos os Melhores Serviços Industriais
+          </h1>
+        </div>
+        <div className="flex flex-wrap justify-center gap-8">
+          {services.map((service, idx) => (
+            <div
+              key={service.title}
+              className="group animate__animated animate__fadeInUp relative w-full overflow-visible rounded-xl bg-[#23272b] shadow-lg sm:w-[350px]"
+              style={{ animationDelay: `${0.1 + idx * 0.2}s` }}
+            >
+              {/* Container da imagem */}
+              <div className="relative flex h-56 w-full items-center justify-center overflow-hidden">
+                {/* Miniatura centralizada sobre a imagem */}
+                <img
+                  src={service.img}
+                  alt={`Miniatura de ${service.title}`}
+                  className="absolute top-1/2 left-1/2 z-20 h-[100px] w-[100px] -translate-x-1/2 -translate-y-1/2 rounded border-2 border-white object-cover opacity-100 shadow transition-all duration-500 group-hover:opacity-0"
+                />
+                {/* Imagem principal com efeito */}
+                <img
+                  src={service.img2}
+                  alt={service.title}
+                  className="h-56 w-full translate-y-8 object-cover opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100"
+                />
+              </div>
+              <div className="absolute inset-0 z-10 bg-black/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+              <div className="relative z-20 flex flex-col items-center px-6 py-8">
+                <div className="flex w-full flex-col items-center">
+                  <div className="mb-4 flex w-full items-center justify-center gap-2">
+                    <hr className="border-primary w-1/4 border-t-2" />
+                    <h3 className="text-center text-xl font-bold text-white">
+                      {service.title}
+                    </h3>
+                    <hr className="border-primary w-1/4 border-t-2" />
+                  </div>
+                  <p className="mb-6 text-center text-white">{service.desc}</p>
+                  <a
+                    href={service.link}
+                    className="text-primary hover:bg-primary inline-block rounded bg-white px-6 py-2 font-semibold shadow transition-all duration-300 hover:text-white"
+                  >
+                    Leia Mais
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
