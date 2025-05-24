@@ -30,7 +30,7 @@ export function Hero() {
         <SwiperSlide>
           <div className="relative h-full w-full">
             <div className="relative z-10">
-              <div className="px-8 pt-[120px] text-left md:px-16 lg:px-24">
+              <div className="animate-on-scroll fade-in-up px-8 pt-[120px] text-left md:px-16 lg:px-24">
                 <p className="mb-2 text-sm font-semibold text-orange-400 uppercase drop-shadow-md md:text-base">
                   ESTAMOS PRONTOS PARA AJUDAR VOCÊ
                 </p>
@@ -63,7 +63,7 @@ export function Hero() {
         <SwiperSlide>
           <div className="relative h-full w-full">
             <div className="relative z-10">
-              <div className="px-8 pt-[150px] text-left md:px-16 lg:px-24">
+              <div className="animate-on-scroll fade-in-up px-8 pt-[150px] text-left md:px-16 lg:px-24">
                 <p className="mb-2 text-sm font-semibold text-orange-400 uppercase drop-shadow-md md:text-base">
                   ESTAMOS PRONTOS PARA AJUDAR VOCÊ
                 </p>
@@ -96,7 +96,7 @@ export function Hero() {
         <SwiperSlide>
           <div className="relative h-full w-full">
             <div className="relative z-10">
-              <div className="px-8 pt-[120px] text-left md:px-16 lg:px-24">
+              <div className="animate-on-scroll fade-in-up px-8 pt-[120px] text-left md:px-16 lg:px-24">
                 <p className="mb-2 text-sm font-semibold text-orange-400 uppercase drop-shadow-md md:text-base">
                   ESTAMOS PRONTOS PARA AJUDAR VOCÊ
                 </p>
