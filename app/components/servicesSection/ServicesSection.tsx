@@ -30,10 +30,7 @@ export default function ServicesSection() {
   return (
     <section className="w-full bg-white py-16">
       <div className="container mx-auto px-4">
-        <div
-          className="animate__animated animate__fadeInUp mx-auto max-w-xl pb-8 text-center"
-          style={{ animationDelay: "0.1s" }}
-        >
+        <div className="animate-on-scroll fade-in-up mx-auto max-w-xl pb-8 text-center">
           <p className="text-primary mb-2 font-medium tracking-widest uppercase">
             Nossos Serviços
           </p>
@@ -45,8 +42,7 @@ export default function ServicesSection() {
           {services.map((service, idx) => (
             <div
               key={service.title}
-              className="group animate__animated animate__fadeInUp relative w-full overflow-visible bg-[#23272b] shadow-lg sm:w-[350px]"
-              style={{ animationDelay: `${0.1 + idx * 0.2}s` }}
+              className="animate-on-scroll fade-in-up group relative w-full overflow-visible bg-[#23272b] shadow-lg sm:w-[350px]"
             >
               {/* Container da imagem */}
               <div className="relative flex h-56 w-full items-center justify-center overflow-hidden">
