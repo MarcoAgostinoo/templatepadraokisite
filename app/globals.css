@@ -10,48 +10,39 @@
   opacity: 0;
   transform: translateY(20px);
   transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-  visibility: visible;
+  visibility: hidden;
 }
 
 .fade-in-up.visible {
   opacity: 1;
   transform: translateY(0);
+  visibility: visible;
 }
 
 .fade-in-down {
   opacity: 0;
   transform: translateY(-20px);
   transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-  visibility: visible;
+  visibility: hidden;
 }
 
 .fade-in-down.visible {
   opacity: 1;
   transform: translateY(0);
+  visibility: visible;
 }
 
 .fade-in-right {
   opacity: 0;
   transform: translateX(-20px);
   transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-  visibility: visible;
+  visibility: hidden;
 }
 
 .fade-in-right.visible {
   opacity: 1;
   transform: translateX(0);
-}
-
-.fade-in-left {
-  opacity: 0;
-  transform: translateX(20px);
-  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
   visibility: visible;
-}
-
-.fade-in-left.visible {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 /* Estilo para o bullet de paginação ativo do Swiper */
@@ -152,18 +143,4 @@
 
 .swiper-pagination-bullet-active {
   background-color: #f97316; /* orange-500 */
-}
-
-/* Animação simples para imagens */
-@keyframes simpleFadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.image-fade-in {
-  animation: simpleFadeIn 1s ease-in forwards;
 }

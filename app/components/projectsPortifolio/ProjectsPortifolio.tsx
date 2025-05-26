@@ -1,9 +1,20 @@
-// components/ProjectsPortfolio.tsx
 "use client";
-
-import { memo, useState, useEffect, useRef, useCallback } from "react";
-import Image from "next/image";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+import React, { useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as SwiperType } from "swiper";
+import {
+  Navigation,
+  Pagination,
+  Autoplay,
+  EffectCoverflow,
+} from "swiper/modules";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import ProjectCard from "./ProjectCard";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-coverflow";
+import "animate.css/animate.min.css";
 
 export interface Project {
   id: string;
@@ -14,248 +25,247 @@ export interface Project {
   link?: string;
 }
 
-const initialProjects: Project[] = [
+const projetosData: Project[] = [
   {
     id: "1",
-    title: "Sistema E-commerce",
-    description:
-      "Plataforma completa de vendas online com carrinho de compras, sistema de pagamento integrado e dashboard administrativo avançado.",
+    title: "Projeto 1",
+    description: "Descrição do projeto 1",
     imageUrl: "/project1.jpg",
-    technologies: ["React", "TypeScript", "Stripe"],
-    link: "https://exemplo.com",
+    technologies: ["React", "TypeScript", "Tailwind CSS"],
+    link: "#",
   },
   {
     id: "2",
-    title: "Dashboard Analytics",
-    description:
-      "Sistema completo de análise de dados com gráficos interativos, relatórios em tempo real e exportação de dados.",
+    title: "Projeto 2",
+    description: "Descrição do projeto 2",
     imageUrl: "/project2.jpg",
-    technologies: ["Next.js", "Chart.js", "MongoDB"],
-    link: "https://exemplo.com",
+    technologies: ["Next.js", "Node.js", "MongoDB"],
+    link: "#",
   },
   {
     id: "3",
-    title: "App Mobile Híbrido",
-    description:
-      "Aplicativo multiplataforma com sincronização offline, notificações push e interface nativa.",
+    title: "Projeto 3",
+    description: "Descrição do projeto 3",
     imageUrl: "/project3.jpg",
-    technologies: ["React Native", "Firebase", "Redux"],
-    link: "https://exemplo.com",
+    technologies: ["React", "Firebase", "Material UI"],
+    link: "#",
   },
   {
     id: "4",
-    title: "Plataforma de Cursos Online",
-    description:
-      "Sistema de ensino a distância com videoaulas, exercícios interativos e certificação automática.",
+    title: "Projeto 4",
+    description: "Descrição do projeto 4",
     imageUrl: "/project4.jpg",
-    technologies: ["Vue.js", "Node.js", "PostgreSQL"],
-    link: "https://exemplo.com",
+    technologies: ["Vue.js", "Express", "PostgreSQL"],
+    link: "#",
   },
   {
     id: "5",
-    title: "Rede Social Profissional",
-    description:
-      "Plataforma de networking com perfis profissionais, busca avançada e sistema de mensagens.",
+    title: "Projeto 5",
+    description: "Descrição do projeto 5",
     imageUrl: "/project5.jpg",
-    technologies: ["Angular", "Express", "MongoDB"],
-    link: "https://exemplo.com",
+    technologies: ["Angular", "Django", "MySQL"],
+    link: "#",
   },
   {
     id: "6",
-    title: "Sistema de Gestão Empresarial",
-    description:
-      "Solução completa para gestão de empresas com módulos de RH, financeiro e estoque.",
+    title: "Projeto 6",
+    description: "Descrição do projeto 6",
     imageUrl: "/project6.jpg",
-    technologies: ["React", "Django", "MySQL"],
-    link: "https://exemplo.com",
+    technologies: ["React Native", "GraphQL", "AWS"],
+    link: "#",
   },
 ];
 
-const ProjectCard = memo<{ project: Project }>(({ project }) => (
-  <div
-    className="group w-72 flex-shrink-0 overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/8 hover:shadow-2xl hover:shadow-blue-500/10 sm:w-80 md:w-96"
-    role="group"
-    aria-label={project.title}
-  >
-    <div className="p-5">
-      <div className="relative mb-4 aspect-video overflow-hidden rounded-lg bg-gradient-to-br from-blue-900/20 to-purple-900/20">
-        <Image
-          src={project.imageUrl}
-          alt={project.title}
-          fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          loading="lazy"
-        />
-      </div>
-      <h3 className="mb-3 line-clamp-2 text-xl font-bold text-white/90 transition-colors group-hover:text-white">
-        {project.title}
-      </h3>
-      <p className="mb-4 line-clamp-3 text-sm leading-relaxed text-white/70">
-        {project.description}
-      </p>
-      <div className="mb-5 flex flex-wrap gap-2">
-        {project.technologies.slice(0, 4).map((tech) => (
-          <span
-            key={tech}
-            className="rounded-full border border-white/20 bg-gradient-to-r from-blue-600/20 to-purple-600/20 px-3 py-1 text-xs font-semibold text-white/80 transition-all duration-200 hover:from-blue-600/30 hover:to-purple-600/30"
-          >
-            {tech}
-          </span>
-        ))}
-        {project.technologies.length > 4 && (
-          <span className="rounded-full bg-white/5 px-2 py-1 text-xs text-white/60">
-            +{project.technologies.length - 4}
-          </span>
-        )}
-      </div>
-      {project.link && (
-        <a
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group/link inline-flex w-full items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-200 hover:from-blue-700 hover:to-purple-700 hover:shadow-xl"
-        >
-          Ver Projeto
-          <span className="ml-2 transition-transform duration-200 group-hover/link:translate-x-1">
-            →
-          </span>
-        </a>
-      )}
-    </div>
-  </div>
-));
-ProjectCard.displayName = "ProjectCard";
+const NAV_PREV_CLASS = "swiper-button-prev-custom-portfolio";
+const NAV_NEXT_CLASS = "swiper-button-next-custom-portfolio";
 
-const useCarousel = (itemsLength: number, autoplayDelay = 6000) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoplay, setIsAutoplay] = useState(true);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const nextSlide = useCallback(
-    () => setCurrentIndex((prev) => (prev + 1) % itemsLength),
-    [itemsLength],
-  );
-  const prevSlide = useCallback(
-    () => setCurrentIndex((prev) => (prev - 1 + itemsLength) % itemsLength),
-    [itemsLength],
-  );
-  const goToSlide = useCallback((index: number) => setCurrentIndex(index), []);
-  useEffect(() => {
-    if (isAutoplay && itemsLength > 1) {
-      intervalRef.current = setInterval(nextSlide, autoplayDelay);
-    }
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
-  }, [isAutoplay, nextSlide, autoplayDelay, itemsLength]);
-  const pauseAutoplay = useCallback(() => setIsAutoplay(false), []);
-  const resumeAutoplay = useCallback(() => setIsAutoplay(true), []);
-  return {
-    currentIndex,
-    nextSlide,
-    prevSlide,
-    goToSlide,
-    pauseAutoplay,
-    resumeAutoplay,
-  };
-};
-
-const ProjectsPortfolio = memo(() => {
-  const [projects] = useState<Project[]>(initialProjects);
-  const {
-    currentIndex,
-    nextSlide,
-    prevSlide,
-    goToSlide,
-    pauseAutoplay,
-    resumeAutoplay,
-  } = useCarousel(projects.length);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-    const currentChild = container.children[currentIndex] as HTMLElement;
-    if (!currentChild) return;
-    container.scrollTo({ left: currentChild.offsetLeft, behavior: "smooth" });
-  }, [currentIndex]);
+export default function ProjectsPortfolio() {
+  const swiperRef = useRef<SwiperType | null>(null);
+  const initialSlidesToPrioritize = 3;
 
   return (
-    <section
-      className="relative min-h-screen w-full bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-16"
-      role="region"
-      aria-roledescription="carousel"
-      aria-label="Portfólio de Projetos"
-    >
-      <div className="mx-auto w-full px-4">
-        <div className="mb-12 text-center">
-          <div className="mb-6 flex items-center justify-center gap-4">
-            <span className="inline-block rounded-full bg-blue-500/10 px-4 py-2 text-sm font-medium tracking-wider text-blue-400 uppercase">
-              Portfólio
-            </span>
-          </div>
-          <h2 className="mb-6 bg-gradient-to-r from-white via-blue-400 to-purple-400 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl md:text-5xl lg:text-6xl">
-            Nossos Projetos
+    <section className="relative min-h-screen w-full overflow-hidden bg-blue-900 py-12 sm:py-16 md:py-20 lg:py-32">
+      {/* Background decorativo */}
+      <div
+        className="absolute inset-0 bg-[url('/pattern-dark.svg')] opacity-5"
+        aria-hidden="true"
+      ></div>
+
+      <div className="relative container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+        {/* Cabeçalho */}
+        <div className="mx-auto mb-8 sm:mb-12 md:mb-16 max-w-3xl text-center">
+          <span className="mb-2 sm:mb-3 inline-block rounded-full bg-blue-500/10 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-medium tracking-wider text-blue-400 uppercase">
+            Portfólio
+          </span>
+          <h2 className="mb-4 sm:mb-6 bg-gradient-to-r from-white via-blue-400 to-blue-500 bg-clip-text text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-transparent leading-tight">
+            Nossos Projetos em Destaque
           </h2>
-          <p className="mx-auto max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-            Explore nossa coleção de projetos desenvolvidos com as melhores
-            tecnologias e práticas do mercado.
+          <p className="text-base sm:text-lg md:text-xl text-blue-100 px-2 sm:px-0">
+            Explore nossa coleção de projetos inovadores que transformam ideias
+            em realidade.
           </p>
         </div>
 
-        <div className="relative w-full">
-          <div
-            ref={containerRef}
-            className="flex w-full gap-6 overflow-x-auto pb-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-            style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
-            onMouseEnter={pauseAutoplay}
-            onMouseLeave={resumeAutoplay}
-            role="list"
+        {/* Carrossel */}
+        <div className="relative px-2 sm:px-4 md:px-0">
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
+            effect="coverflow"
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView="auto"
+            loop={true}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: true,
+            }}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true,
+              el: ".swiper-pagination-custom-portfolio",
+            }}
+            navigation={{
+              nextEl: `.${NAV_NEXT_CLASS}`,
+              prevEl: `.${NAV_PREV_CLASS}`,
+            }}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            className="!pb-12 sm:!pb-16 md:!pb-20"
+            breakpoints={{
+              // Mobile pequeno (320px+)
+              320: { 
+                slidesPerView: 1, 
+                spaceBetween: 12,
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: 0,
+                  depth: 50,
+                  modifier: 1,
+                  slideShadows: false,
+                }
+              },
+              // Mobile médio (375px+)
+              375: { 
+                slidesPerView: 1.1, 
+                spaceBetween: 16,
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: 0,
+                  depth: 60,
+                  modifier: 1,
+                  slideShadows: false,
+                }
+              },
+              // Mobile grande (480px+)
+              480: { 
+                slidesPerView: 1.2, 
+                spaceBetween: 20,
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: 0,
+                  depth: 80,
+                  modifier: 1,
+                  slideShadows: true,
+                }
+              },
+              // Tablet pequeno (640px+)
+              640: { 
+                slidesPerView: 1.5, 
+                spaceBetween: 24,
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: 0,
+                  depth: 100,
+                  modifier: 1,
+                  slideShadows: true,
+                }
+              },
+              // Tablet médio (768px+)
+              768: { 
+                slidesPerView: 2.2, 
+                spaceBetween: 28,
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: 0,
+                  depth: 100,
+                  modifier: 1,
+                  slideShadows: true,
+                }
+              },
+              // Desktop pequeno (1024px+)
+              1024: { 
+                slidesPerView: 3, 
+                spaceBetween: 32,
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: 0,
+                  depth: 100,
+                  modifier: 1,
+                  slideShadows: true,
+                }
+              },
+              // Desktop grande (1280px+)
+              1280: { 
+                slidesPerView: 3.5, 
+                spaceBetween: 32,
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: 0,
+                  depth: 100,
+                  modifier: 1,
+                  slideShadows: true,
+                }
+              },
+            }}
           >
-            <button
-              onClick={prevSlide}
-              className="absolute top-1/2 left-4 z-10 -translate-y-1/2 rounded-full bg-white/10 p-2 text-white/70 backdrop-blur-sm transition-all hover:bg-white/20 hover:text-white"
-              aria-label="Projeto anterior"
-            >
-              <ChevronLeftIcon className="h-6 w-6" />
-            </button>
-
-            {projects.map((project) => (
-              <div
-                key={project.id}
-                style={{ scrollSnapAlign: "start" }}
-                role="listitem"
+            {projetosData.map((projeto, idx) => (
+              <SwiperSlide
+                key={projeto.id}
+                className="group animate__animated animate__fadeInUp !w-[260px] xs:!w-[280px] sm:!w-[300px] md:!w-[320px] lg:!w-[350px]"
+                style={{ height: "auto" }}
               >
-                <ProjectCard project={project} />
-              </div>
+                <ProjectCard
+                  project={projeto}
+                  isPriority={idx < initialSlidesToPrioritize}
+                />
+              </SwiperSlide>
             ))}
+            <div className="swiper-pagination-custom-portfolio !mt-6 sm:!mt-8 flex justify-center"></div>
+          </Swiper>
 
-            <button
-              onClick={nextSlide}
-              className="absolute top-1/2 right-4 z-10 -translate-y-1/2 rounded-full bg-white/10 p-2 text-white/70 backdrop-blur-sm transition-all hover:bg-white/20 hover:text-white"
-              aria-label="Próximo projeto"
-            >
-              <ChevronRightIcon className="h-6 w-6" />
-            </button>
-          </div>
-          <div className="mt-8 flex justify-center gap-2">
-            {projects.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`h-2 w-2 rounded-full transition-all ${currentIndex === index ? "bg-white" : "bg-white/30 hover:bg-white/50"}`}
-                aria-label={`Ir para projeto ${index + 1}`}
-              />
-            ))}
-          </div>
+          {/* Botões de navegação - Ocultos em mobile, visíveis em tablet+ */}
+          <button
+            type="button"
+            aria-label="Slide anterior"
+            className={`${NAV_PREV_CLASS} absolute top-1/2 left-0 sm:left-2 md:-left-6 lg:-left-12 z-20 -translate-y-1/2 transform cursor-pointer rounded-md border border-blue-400 bg-blue-800 p-2 sm:p-3 text-blue-400 transition-all hover:bg-blue-400 hover:text-white focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-blue-900 focus:outline-none hidden sm:block`}
+          >
+            <FiArrowLeft size={20} className="sm:w-6 sm:h-6" />
+          </button>
+          <button
+            type="button"
+            aria-label="Próximo slide"
+            className={`${NAV_NEXT_CLASS} absolute top-1/2 right-0 sm:right-2 md:-right-6 lg:-right-12 z-20 -translate-y-1/2 transform cursor-pointer rounded-md border border-blue-400 bg-blue-800 p-2 sm:p-3 text-blue-400 transition-all hover:bg-blue-400 hover:text-white focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-blue-900 focus:outline-none hidden sm:block`}
+          >
+            <FiArrowRight size={20} className="sm:w-6 sm:h-6" />
+          </button>
+        </div>
+
+        {/* Indicador de swipe para mobile */}
+        <div className="mt-4 text-center sm:hidden">
+          <p className="text-xs text-blue-300/70 animate-pulse">
+            ← Deslize para ver mais projetos →
+          </p>
         </div>
       </div>
     </section>
   );
-});
-
-ProjectsPortfolio.displayName = "ProjectsPortfolio";
-
-export default ProjectsPortfolio;
+}
