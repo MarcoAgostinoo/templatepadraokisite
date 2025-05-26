@@ -1,0 +1,140 @@
+# 🚀 Template Next.js com Flowbite React
+
+<div align="center">
+
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Flowbite](https://img.shields.io/badge/Flowbite-3B82F6?style=for-the-badge&logo=flowbite&logoColor=white)
+
+</div>
+
+## 📝 Sobre o Projeto
+
+Este é um template moderno e otimizado desenvolvido com Next.js e Flowbite React, projetado para servir como base para projetos web profissionais. O template foi construído com foco em performance, SEO e experiência do usuário, incorporando as melhores práticas de desenvolvimento web moderno.
+
+### ✨ Características Principais
+
+- ⚡ Renderização do lado do servidor (SSR) otimizada
+- 🎨 Animações suaves e performáticas
+- 📱 Design responsivo
+- 🔄 Componentes reutilizáveis
+- 🎯 Integração com Flowbite React para UI consistente
+- 🌓 Suporte a temas claro/escuro
+- 🔍 Otimizado para SEO
+
+## 🛠️ Como Usar
+
+1. Clone o repositório
+
+```bash
+git clone [URL_DO_REPOSITÓRIO]
+```
+
+2. Instale as dependências
+
+```bash
+npm install
+```
+
+3. Execute o projeto em desenvolvimento
+
+```bash
+npm run dev
+```
+
+## 🎨 Personalização
+
+Este template foi projetado para ser facilmente personalizado. Você pode:
+
+- 🎨 Modificar as cores e temas
+- 📦 Adicionar novos componentes
+- ✨ Personalizar as animações
+- 🔌 Integrar com seu backend
+- 🚀 Adicionar novas funcionalidades
+
+## 🎭 Sistema de Animações
+
+O template implementa um sistema de animações otimizado para SSR, utilizando uma combinação de CSS e Intersection Observer.
+
+### 1. Classes CSS de Animação
+
+```css
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  visibility: hidden;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+```
+
+### 2. Intersection Observer
+
+```javascript
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (!entry.target.classList.contains("visible")) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      }
+    });
+  },
+  {
+    threshold: 0.5,
+    rootMargin: "0px",
+  },
+);
+```
+
+### 3. Implementação no Componente
+
+```jsx
+<div className="animate-on-scroll fade-in-right w-1/2 self-start px-3">
+    <img ... />
+</div>
+```
+
+## 🤖 Prompt para IA
+
+Para solicitar a implementação de animações otimizadas para SSR em componentes Next.js, use o seguinte prompt:
+
+```
+Preciso implementar animações em um componente Next.js que será renderizado no servidor (SSR). Por favor, siga estas especificações:
+
+1. O componente não deve usar hooks do React (useState, useEffect, useInView, etc)
+2. As animações devem ser ativadas quando os elementos entram na viewport
+3. A implementação deve incluir:
+   - Um arquivo CSS com as classes de animação (fade-in-up, fade-in-down, fade-in-right)
+   - Um arquivo JavaScript com a lógica do Intersection Observer
+   - A integração no layout principal da aplicação
+   - A aplicação das classes no componente
+
+As animações devem incluir:
+- Fade in com slide up
+- Fade in com slide down
+- Fade in com slide right
+
+O código deve ser otimizado para SSR e não deve depender de bibliotecas externas de animação.
+```
+
+## 📞 Suporte
+
+Para suporte técnico ou dúvidas sobre o template, entre em contato com a KiSite Soluções Web.
+
+## ⚖️ Licença
+
+Este template é propriedade exclusiva da **KiSite Soluções Web**. Todos os direitos reservados.
+
+---
+
+<div align="center">
+  <sub>Desenvolvido com ❤️ pela KiSite Soluções Web</sub>
+</div>
