@@ -3,7 +3,6 @@ import withFlowbiteReact from "flowbite-react/plugin/nextjs";
 
 const nextConfig: NextConfig = {
   images: {
-    unoptimized: true,
     remotePatterns: [],
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
@@ -11,6 +10,15 @@ const nextConfig: NextConfig = {
   },
   reactStrictMode: true,
   swcMinify: true,
+  compress: true,
+  poweredByHeader: false,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
+  experimental: {
+    optimizeCss: true,
+    scrollRestoration: true,
+  },
 };
 
 export default withFlowbiteReact(nextConfig);

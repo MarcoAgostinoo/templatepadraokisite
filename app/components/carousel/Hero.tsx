@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
 import Button from "../button/Button";
+import { useEffect, useState } from "react";
 
 // Importando os estilos do Swiper
 import "swiper/css";
@@ -11,6 +12,16 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 export function Hero() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return <div className="h-screen w-full bg-gray-100" />;
+  }
+
   return (
     <div className="h-screen w-full">
       <Swiper
@@ -31,15 +42,16 @@ export function Hero() {
           <div className="relative h-full w-full">
             <div className="relative z-10">
               <div className="animate-on-scroll fade-in-up px-8 pt-[120px] text-left md:px-16 lg:px-24">
-                <p className="mb-2 text-sm font-semibold text-orange-400 uppercase drop-shadow-md md:text-base">
-                  ESTAMOS PRONTOS PARA AJUDAR VOCÊ
+                <p className="mb-2 text-sm font-bold text-orange-500 uppercase drop-shadow-lg md:text-base">
+                  ESTAMOS PRONTOS PARA AJUDAR VOCÊ1
                 </p>
-                <h2 className="mb-4 text-4xl font-extrabold text-white drop-shadow-lg md:text-5xl lg:text-6xl">
-                  SERVIÇOS MECÂNICOS
+                <h2 className="mb-4 text-4xl font-black text-white drop-shadow-xl md:text-5xl lg:text-6xl">
+                  <span className="font-black text-orange-400">SERVIÇOS</span>{" "}
+                  MECÂNICOS
                   <br />
-                  EM GERAL
+                  <span className="font-black text-orange-400">EM GERAL</span>
                 </h2>
-                <p className="mb-8 max-w-2xl text-lg leading-relaxed text-white/90 drop-shadow-md md:text-xl">
+                <p className="mb-8 max-w-2xl text-lg leading-relaxed font-semibold text-white drop-shadow-lg md:text-xl">
                   A Garagem Oficina realiza serviços automotivos de alta
                   qualidade, desde manutenções preventivas até reparos
                   complexos, garantindo segurança e desempenho do seu veículo.
@@ -51,28 +63,33 @@ export function Hero() {
                 </div>
               </div>
             </div>
-            <Image
-              src="/index2.jpg"
-              alt="Slide 1"
-              fill
-              className="object-cover"
-              priority
-            />
+            <div className="absolute inset-0">
+              <Image
+                src="/index2.jpg"
+                alt="Slide 1"
+                fill
+                sizes="100vw"
+                className="object-cover"
+                priority
+                quality={90}
+              />
+            </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative h-full w-full">
             <div className="relative z-10">
               <div className="animate-on-scroll fade-in-up px-8 pt-[150px] text-left md:px-16 lg:px-24">
-                <p className="mb-2 text-sm font-semibold text-orange-400 uppercase drop-shadow-md md:text-base">
+                <p className="mb-2 text-sm font-bold text-orange-500 uppercase drop-shadow-lg md:text-base">
                   ESTAMOS PRONTOS PARA AJUDAR VOCÊ
                 </p>
-                <h2 className="mb-4 text-4xl font-extrabold text-white drop-shadow-lg md:text-5xl lg:text-6xl">
-                  SERVIÇOS MECÂNICOS
+                <h2 className="mb-4 text-4xl font-black text-white drop-shadow-xl md:text-5xl lg:text-6xl">
+                  <span className="font-black text-orange-400">SERVIÇOS</span>{" "}
+                  MECÂNICOS
                   <br />
-                  EM GERAL
+                  <span className="font-black text-orange-400">EM GERAL</span>
                 </h2>
-                <p className="mb-8 max-w-2xl text-lg leading-relaxed text-white/90 drop-shadow-md md:text-xl">
+                <p className="mb-8 max-w-2xl text-lg leading-relaxed font-semibold text-white drop-shadow-lg md:text-xl">
                   A Garagem Oficina realiza serviços automotivos de alta
                   qualidade, desde manutenções preventivas até reparos
                   complexos, garantindo segurança e desempenho do seu veículo.
@@ -84,28 +101,33 @@ export function Hero() {
                 </div>
               </div>
             </div>
-            <Image
-              src="/index4.jpg"
-              alt="Slide 2"
-              fill
-              className="object-cover"
-              priority
-            />
+            <div className="absolute inset-0">
+              <Image
+                src="/index4.jpg"
+                alt="Slide 2"
+                fill
+                sizes="100vw"
+                className="object-cover"
+                priority
+                quality={90}
+              />
+            </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative h-full w-full">
             <div className="relative z-10">
               <div className="animate-on-scroll fade-in-up px-8 pt-[120px] text-left md:px-16 lg:px-24">
-                <p className="mb-2 text-sm font-semibold text-orange-400 uppercase drop-shadow-md md:text-base">
+                <p className="mb-2 text-sm font-bold text-orange-500 uppercase drop-shadow-lg md:text-base">
                   ESTAMOS PRONTOS PARA AJUDAR VOCÊ
                 </p>
-                <h2 className="mb-4 text-4xl font-extrabold text-white drop-shadow-lg md:text-5xl lg:text-6xl">
-                  SERVIÇOS MECÂNICOS
+                <h2 className="mb-4 text-4xl font-black text-white drop-shadow-xl md:text-5xl lg:text-6xl">
+                  <span className="font-black text-orange-400">SERVIÇOS</span>{" "}
+                  MECÂNICOS
                   <br />
-                  EM GERAL
+                  <span className="font-black text-orange-400">EM GERAL</span>
                 </h2>
-                <p className="mb-8 max-w-2xl text-lg leading-relaxed text-white/90 drop-shadow-md md:text-xl">
+                <p className="mb-8 max-w-2xl text-lg leading-relaxed font-semibold text-white drop-shadow-lg md:text-xl">
                   A Garagem Oficina realiza serviços automotivos de alta
                   qualidade, desde manutenções preventivas até reparos
                   complexos, garantindo segurança e desempenho do seu veículo.
@@ -117,13 +139,17 @@ export function Hero() {
                 </div>
               </div>
             </div>
-            <Image
-              src="/index1.jpg"
-              alt="Slide 3"
-              fill
-              className="object-cover"
-              priority
-            />
+            <div className="absolute inset-0">
+              <Image
+                src="/index1.jpg"
+                alt="Slide 3"
+                fill
+                sizes="100vw"
+                className="object-cover"
+                priority
+                quality={90}
+              />
+            </div>
           </div>
         </SwiperSlide>
       </Swiper>

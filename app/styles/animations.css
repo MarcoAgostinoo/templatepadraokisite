@@ -1,6 +1,6 @@
 /* Animações base - definem o estado inicial */
 .animate-initial {
-  opacity: 0.3;
+  opacity: 1;
   will-change: transform, opacity;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -17,21 +17,20 @@
 
 /* Animações de Fade */
 .fade-in {
-  opacity: 0.3;
-  transition: opacity 0.6s ease-out;
+  opacity: 0.9;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .fade-in.visible {
   opacity: 1;
+  transform: translateY(0);
 }
 
 /* Fade com movimento para cima */
 .fade-in-up {
-  opacity: 0.3;
+  opacity: 0.9;
   transform: translateY(20px);
-  transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .fade-in-up.visible {
@@ -41,11 +40,9 @@
 
 /* Fade com movimento para baixo */
 .fade-in-down {
-  opacity: 0.3;
+  opacity: 0.9;
   transform: translateY(-20px);
-  transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .fade-in-down.visible {
@@ -55,11 +52,9 @@
 
 /* Fade com movimento lateral */
 .fade-in-left {
-  opacity: 0.3;
+  opacity: 0.9;
   transform: translateX(-20px);
-  transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .fade-in-left.visible {
@@ -68,11 +63,9 @@
 }
 
 .fade-in-right {
-  opacity: 0.3;
+  opacity: 0.9;
   transform: translateX(20px);
-  transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .fade-in-right.visible {
@@ -82,11 +75,9 @@
 
 /* Animações de escala */
 .scale-in {
-  opacity: 0.3;
+  opacity: 0.9;
   transform: scale(0.95);
-  transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .scale-in.visible {
@@ -98,15 +89,19 @@
 .delay-100 {
   transition-delay: 100ms;
 }
+
 .delay-200 {
   transition-delay: 200ms;
 }
+
 .delay-300 {
   transition-delay: 300ms;
 }
+
 .delay-400 {
   transition-delay: 400ms;
 }
+
 .delay-500 {
   transition-delay: 500ms;
 }
@@ -115,12 +110,15 @@
 .duration-300 {
   transition-duration: 300ms;
 }
+
 .duration-500 {
   transition-duration: 500ms;
 }
+
 .duration-700 {
   transition-duration: 700ms;
 }
+
 .duration-1000 {
   transition-duration: 1000ms;
 }
@@ -128,11 +126,12 @@
 /* Remove a camada de utilidades duplicada */
 @layer utilities {
   .animate-on-scroll {
-    opacity: 0.3;
-    transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.9;
+    transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .animate-on-scroll.visible {
     opacity: 1;
+    transform: translateY(0);
   }
 }

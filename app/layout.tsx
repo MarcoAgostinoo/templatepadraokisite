@@ -27,12 +27,14 @@ export default function RootLayout({
         <Script id="init-animations" strategy="afterInteractive">
           {`
             (function() {
+              if (typeof window === 'undefined') return;
+              
               let isInitialized = false;
               let animationTimeout;
               let observer;
 
               function initAnimations() {
-                if (typeof window === 'undefined' || isInitialized) return;
+                if (isInitialized) return;
                 
                 if (!observer) {
                   observer = new IntersectionObserver(

@@ -12,18 +12,21 @@ interface AnimatedElementProps {
   durationClass?: string; // ex: "duration-1000"
   rootMargin?: string;
   as?: keyof JSX.IntrinsicElements; // Permite mudar o elemento wrapper (div, section, etc.)
-  onVisibilityChange?: (inView: boolean, entry?: IntersectionObserverEntry) => void;
+  onVisibilityChange?: (
+    inView: boolean,
+    entry?: IntersectionObserverEntry,
+  ) => void;
 }
 
 export const AnimatedElement: FC<AnimatedElementProps> = ({
   children,
   animationClass,
   className = "",
-  threshold = 0.5,
+  threshold = 0.1,
   triggerOnce = true,
   delayClass = "",
   durationClass = "",
-  rootMargin = "0px",
+  rootMargin = "100px",
   as: Tag = "div",
   onVisibilityChange,
 }) => {
@@ -39,12 +42,16 @@ export const AnimatedElement: FC<AnimatedElementProps> = ({
     ${inView ? "visible" : ""}
     ${delayClass}
     ${durationClass}
+    will-change-transform
+    transform-gpu
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, " ");
 
   return (
     <Tag ref={ref} className={combinedClasses}>
       {children}
     </Tag>
   );
-}; 
+};

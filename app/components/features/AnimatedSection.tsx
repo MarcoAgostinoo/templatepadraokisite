@@ -1,17 +1,21 @@
 import { AnimatedElement } from "../../styles/AnimatedElement";
+import { lazy, Suspense } from "react";
+
+// Lazy loading para componentes pesados
+const ServiceCard = lazy(() => import("./ServiceCard"));
 
 export const AnimatedSection = () => {
   return (
-    <section className="py-16 px-4 bg-gray-50">
-      <div className="max-w-6xl mx-auto space-y-16">
+    <section className="bg-gray-50 px-4 py-16">
+      <div className="mx-auto max-w-6xl space-y-16">
         {/* Título com animação fade-in-up */}
         <AnimatedElement
           animationClass="fade-in-up"
           delayClass="delay-100"
-          durationClass="duration-700"
+          durationClass="duration-500"
           className="text-center"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="mb-4 text-4xl font-bold text-gray-900">
             Nossos Serviços
           </h2>
           <p className="text-lg text-gray-600">
@@ -20,65 +24,65 @@ export const AnimatedSection = () => {
         </AnimatedElement>
 
         {/* Cards com diferentes animações */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Card 1 - Fade in da esquerda */}
-          <AnimatedElement
-            animationClass="fade-in-left"
-            delayClass="delay-200"
-            durationClass="duration-700"
-            className="bg-white p-6 rounded-lg shadow-lg"
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <Suspense
+            fallback={
+              <div className="h-48 animate-pulse rounded-lg bg-gray-100" />
+            }
           >
-            <h3 className="text-xl font-semibold mb-3">Design Moderno</h3>
-            <p className="text-gray-600">
-              Criamos interfaces modernas e responsivas que encantam seus usuários.
-            </p>
-          </AnimatedElement>
+            <ServiceCard
+              title="Design Moderno"
+              description="Criamos interfaces modernas e responsivas que encantam seus usuários."
+              animation="fade-in-left"
+              delay="delay-200"
+            />
+          </Suspense>
 
-          {/* Card 2 - Scale in */}
-          <AnimatedElement
-            animationClass="scale-in"
-            delayClass="delay-300"
-            durationClass="duration-700"
-            className="bg-white p-6 rounded-lg shadow-lg"
+          <Suspense
+            fallback={
+              <div className="h-48 animate-pulse rounded-lg bg-gray-100" />
+            }
           >
-            <h3 className="text-xl font-semibold mb-3">Desenvolvimento</h3>
-            <p className="text-gray-600">
-              Soluções tecnológicas robustas e escaláveis para seu negócio.
-            </p>
-          </AnimatedElement>
+            <ServiceCard
+              title="Desenvolvimento"
+              description="Soluções tecnológicas robustas e escaláveis para seu negócio."
+              animation="scale-in"
+              delay="delay-300"
+            />
+          </Suspense>
 
-          {/* Card 3 - Fade in da direita */}
-          <AnimatedElement
-            animationClass="fade-in-right"
-            delayClass="delay-400"
-            durationClass="duration-700"
-            className="bg-white p-6 rounded-lg shadow-lg"
+          <Suspense
+            fallback={
+              <div className="h-48 animate-pulse rounded-lg bg-gray-100" />
+            }
           >
-            <h3 className="text-xl font-semibold mb-3">Suporte 24/7</h3>
-            <p className="text-gray-600">
-              Suporte técnico disponível 24 horas por dia, 7 dias por semana.
-            </p>
-          </AnimatedElement>
+            <ServiceCard
+              title="Suporte 24/7"
+              description="Suporte técnico disponível 24 horas por dia, 7 dias por semana."
+              animation="fade-in-right"
+              delay="delay-400"
+            />
+          </Suspense>
         </div>
 
         {/* Seção de destaque com fade-in-down */}
         <AnimatedElement
           animationClass="fade-in-down"
           delayClass="delay-500"
-          durationClass="duration-1000"
-          className="bg-blue-600 text-white p-8 rounded-xl text-center"
+          durationClass="duration-700"
+          className="rounded-xl bg-blue-600 p-8 text-center text-white"
         >
-          <h3 className="text-2xl font-bold mb-4">
+          <h3 className="mb-4 text-2xl font-bold">
             Comece seu projeto hoje mesmo
           </h3>
           <p className="mb-6">
             Transforme suas ideias em realidade com nossa equipe especializada
           </p>
-          <button className="bg-white text-blue-600 px-6 py-2 rounded-full font-semibold hover:bg-blue-50 transition-colors">
+          <button className="rounded-full bg-white px-6 py-2 font-semibold text-blue-600 transition-colors hover:bg-blue-50">
             Fale Conosco
           </button>
         </AnimatedElement>
       </div>
     </section>
   );
-}; 
+};
