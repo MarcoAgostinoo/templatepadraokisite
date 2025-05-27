@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image"; // Import Next.js Image component
 import { FaCheck, FaEnvelope, FaPhone } from "react-icons/fa";
 
 const AboutSection = () => {
@@ -10,16 +11,17 @@ const AboutSection = () => {
           <div className="w-full px-4 lg:w-1/2">
             <div className="-mx-3 flex h-full">
               <div className="animate-on-scroll fade-in-right w-1/2 self-start px-3">
-                <img
+                <Image
                   className="hover-scale h-auto w-full rounded-lg object-cover shadow-lg transition-all"
                   src="/about1.jpg"
                   alt="About Us"
                   width={500}
                   height={300}
+                  priority // Optional: prioritize loading for LCP
                 />
               </div>
               <div className="animate-on-scroll fade-in-left w-1/2 self-end px-3">
-                <img
+                <Image
                   className="hover-scale h-auto w-full rounded-lg object-cover shadow-lg transition-all"
                   src="/about2.jpg"
                   alt="About Us"

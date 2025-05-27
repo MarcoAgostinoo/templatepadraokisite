@@ -1,5 +1,5 @@
 "use client";
-import { ReactNode, FC } from "react";
+import { ReactNode, FC, ElementType } from "react";
 import { useInView } from "react-intersection-observer";
 
 interface AnimatedElementProps {
@@ -11,10 +11,10 @@ interface AnimatedElementProps {
   delayClass?: string; // ex: "delay-200"
   durationClass?: string; // ex: "duration-1000"
   rootMargin?: string;
-  as?: keyof JSX.IntrinsicElements; // Permite mudar o elemento wrapper (div, section, etc.)
+  as?: ElementType; // Dynamic HTML tag
   onVisibilityChange?: (
     inView: boolean,
-    entry?: IntersectionObserverEntry,
+    entry?: IntersectionObserverEntry
   ) => void;
 }
 
@@ -30,7 +30,7 @@ export const AnimatedElement: FC<AnimatedElementProps> = ({
   as: Tag = "div",
   onVisibilityChange,
 }) => {
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     threshold,
     triggerOnce,
     rootMargin,

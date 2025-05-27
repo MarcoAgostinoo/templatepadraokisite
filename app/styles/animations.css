@@ -28,7 +28,7 @@
 
 /* Fade com movimento para cima */
 .fade-in-up {
-  opacity: 0.9;
+  opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
@@ -40,7 +40,7 @@
 
 /* Fade com movimento para baixo */
 .fade-in-down {
-  opacity: 0.9;
+  opacity: 0;
   transform: translateY(-20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
@@ -52,7 +52,7 @@
 
 /* Fade com movimento lateral */
 .fade-in-left {
-  opacity: 0.9;
+  opacity: 0;
   transform: translateX(-20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
@@ -63,7 +63,7 @@
 }
 
 .fade-in-right {
-  opacity: 0.9;
+  opacity: 0;
   transform: translateX(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
