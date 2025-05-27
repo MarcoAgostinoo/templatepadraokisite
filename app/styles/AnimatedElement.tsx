@@ -14,7 +14,7 @@ interface AnimatedElementProps {
   as?: ElementType; // Dynamic HTML tag
   onVisibilityChange?: (
     inView: boolean,
-    entry?: IntersectionObserverEntry
+    entry?: IntersectionObserverEntry,
   ) => void;
 }
 

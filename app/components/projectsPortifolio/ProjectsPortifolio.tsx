@@ -33,51 +33,57 @@ const defaultProjects: Project[] = [
   {
     id: "1",
     title: "Projeto 1",
-    description: "Descrição do projeto 1 com detalhes sobre a implementação e tecnologias utilizadas.",
+    description:
+      "Descrição do projeto 1 com detalhes sobre a implementação e tecnologias utilizadas.",
     imageUrl: "project1.jpg",
     technologies: ["React", "TypeScript", "Tailwind CSS"],
-    link: "https://example.com/project1"
+    link: "https://example.com/project1",
   },
   {
     id: "2",
     title: "Projeto 2",
-    description: "Descrição do projeto 2 destacando os principais recursos e funcionalidades.",
+    description:
+      "Descrição do projeto 2 destacando os principais recursos e funcionalidades.",
     imageUrl: "project2.jpg",
     technologies: ["Next.js", "Node.js", "MongoDB"],
-    link: "https://example.com/project2"
+    link: "https://example.com/project2",
   },
   {
     id: "3",
     title: "Projeto 3",
-    description: "Descrição do projeto 3 com foco na experiência do usuário e design responsivo.",
+    description:
+      "Descrição do projeto 3 com foco na experiência do usuário e design responsivo.",
     imageUrl: "/project3.jpg",
     technologies: ["Vue.js", "Express", "PostgreSQL"],
-    link: "https://example.com/project3"
+    link: "https://example.com/project3",
   },
   {
     id: "4",
     title: "Projeto 4",
-    description: "Descrição do projeto 4 abordando os desafios e soluções implementadas.",
+    description:
+      "Descrição do projeto 4 abordando os desafios e soluções implementadas.",
     imageUrl: "/project4.jpg",
     technologies: ["Angular", "Firebase", "SCSS"],
-    link: "https://example.com/project4"
+    link: "https://example.com/project4",
   },
   {
     id: "5",
     title: "Projeto 5",
-    description: "Descrição do projeto 5 com ênfase na arquitetura e escalabilidade.",
+    description:
+      "Descrição do projeto 5 com ênfase na arquitetura e escalabilidade.",
     imageUrl: "/project5.jpg",
     technologies: ["React Native", "GraphQL", "AWS"],
-    link: "https://example.com/project5"
+    link: "https://example.com/project5",
   },
   {
     id: "6",
     title: "Projeto 6",
-    description: "Descrição do projeto 6 destacando a inovação e impacto no mercado.",
+    description:
+      "Descrição do projeto 6 destacando a inovação e impacto no mercado.",
     imageUrl: "/project6.jpg",
     technologies: ["Flutter", "Django", "Docker"],
-    link: "https://example.com/project6"
-  }
+    link: "https://example.com/project6",
+  },
 ];
 
 export default function ProjectsPortfolio({
@@ -88,9 +94,9 @@ export default function ProjectsPortfolio({
   const swiperRef = useRef<SwiperType | null>(null);
   const initialSlidesToPrioritize = 3;
   const [windowWidth, setWindowWidth] = useState<number>(
-    typeof window !== "undefined" ? window.innerWidth : 0
+    typeof window !== "undefined" ? window.innerWidth : 0,
   );
-  
+
   // Use default projects if none are provided
   const projects = projetosData.length > 0 ? projetosData : defaultProjects;
 

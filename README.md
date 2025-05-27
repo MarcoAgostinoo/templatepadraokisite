@@ -1,3 +1,108 @@
+# KiSite - Template Moderno com Next.js e Flowbite React
+
+Este é um template moderno e otimizado para desenvolvimento web, construído com Next.js 15 e Flowbite React. O projeto oferece uma base sólida para criar sites profissionais com componentes reutilizáveis e animações suaves.
+
+## 🚀 Tecnologias Principais
+
+- Next.js 15
+- React 19
+- Flowbite React
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Swiper
+- Animate.css
+
+## 📦 Estrutura do Projeto
+
+```
+├── app/
+│   ├── components/
+│   │   ├── about/
+│   │   ├── button/
+│   │   ├── carousel/
+│   │   ├── factsSection/
+│   │   ├── features/
+│   │   ├── footer/
+│   │   ├── navbar/
+│   │   ├── projectsPortifolio/
+│   │   └── servicesSection/
+│   ├── layout.tsx
+│   └── page.tsx
+├── public/
+└── ...
+```
+
+## 🛠️ Como Usar
+
+1. Clone o repositório:
+
+```bash
+git clone [URL_DO_REPOSITÓRIO]
+```
+
+2. Instale as dependências:
+
+```bash
+npm install
+```
+
+3. Execute o projeto em modo de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+4. Para build de produção:
+
+```bash
+npm run build
+```
+
+5. Para iniciar em produção:
+
+```bash
+npm start
+```
+
+## ✨ Funcionalidades
+
+- Design responsivo
+- Animações suaves com Framer Motion
+- Componentes reutilizáveis do Flowbite
+- SEO otimizado
+- Carrossel de imagens com Swiper
+- Seções modulares e personalizáveis
+- Suporte a TypeScript
+- Integração com Font Awesome e Heroicons
+
+## 🎨 Personalização
+
+O projeto utiliza Tailwind CSS para estilização, permitindo fácil personalização através das classes utilitárias. Os componentes principais estão organizados em pastas separadas dentro de `app/components/`, facilitando a manutenção e customização.
+
+## 📝 Scripts Disponíveis
+
+- `npm run dev` - Inicia o servidor de desenvolvimento
+- `npm run build` - Cria a build de produção
+- `npm start` - Inicia o servidor de produção
+- `npm run lint` - Executa o linter
+- `npm run format` - Formata o código com Prettier
+- `npm run format:check` - Verifica a formatação do código
+
+## 🔧 Configuração
+
+O projeto inclui configurações otimizadas para:
+
+- ESLint
+- Prettier
+- TypeScript
+- Tailwind CSS
+- PostCSS
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+
 # 🚀 Template Next.js com Flowbite React
 
 <div align="center">
@@ -21,36 +126,6 @@ Este é um template moderno e otimizado desenvolvido com Next.js e Flowbite Reac
 - 🎯 Integração com Flowbite React para UI consistente
 - 🌓 Suporte a temas claro/escuro
 - 🔍 Otimizado para SEO
-
-## 🛠️ Como Usar
-
-1. Clone o repositório
-
-```bash
-git clone [URL_DO_REPOSITÓRIO]
-```
-
-2. Instale as dependências
-
-```bash
-npm install
-```
-
-3. Execute o projeto em desenvolvimento
-
-```bash
-npm run dev
-```
-
-## 🎨 Personalização
-
-Este template foi projetado para ser facilmente personalizado. Você pode:
-
-- 🎨 Modificar as cores e temas
-- 📦 Adicionar novos componentes
-- ✨ Personalizar as animações
-- 🔌 Integrar com seu backend
-- 🚀 Adicionar novas funcionalidades
 
 ## 🎭 Sistema de Animações
 
@@ -178,30 +253,27 @@ Para animar itens de lista sequencialmente:
 
 ```jsx
 <ul>
-  <li className="animate-on-scroll fade-in-up delay-100">
-    Item 1
-  </li>
-  <li className="animate-on-scroll fade-in-up delay-200">
-    Item 2
-  </li>
-  <li className="animate-on-scroll fade-in-up delay-300">
-    Item 3
-  </li>
+  <li className="animate-on-scroll fade-in-up delay-100">Item 1</li>
+  <li className="animate-on-scroll fade-in-up delay-200">Item 2</li>
+  <li className="animate-on-scroll fade-in-up delay-300">Item 3</li>
 </ul>
 ```
 
 ### Dicas de Uso
 
 1. **Prioridade de Carregamento**
+
    - Use a propriedade `priority` no componente Image para imagens acima da dobra
    - Adicione delays maiores para elementos abaixo da dobra
 
 2. **Performance**
+
    - Evite animar muitos elementos simultaneamente
    - Use delays para distribuir as animações
    - Mantenha as animações simples e suaves
 
 3. **SEO e Acessibilidade**
+
    - Todas as animações são otimizadas para SEO
    - O conteúdo permanece acessível para leitores de tela
    - As animações não afetam a indexação do conteúdo

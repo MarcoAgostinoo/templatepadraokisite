@@ -7,18 +7,23 @@ interface ServiceCardProps {
   delay: string;
 }
 
-const ServiceCard = ({ title, description, animation, delay }: ServiceCardProps) => {
+const ServiceCard = ({
+  title,
+  description,
+  animation,
+  delay,
+}: ServiceCardProps) => {
   return (
     <AnimatedElement
       animationClass={animation}
       delayClass={delay}
       durationClass="duration-500"
-      className="bg-white p-6 rounded-lg shadow-lg transform-gpu"
+      className="transform-gpu rounded-lg bg-white p-6 shadow-lg"
     >
-      <h3 className="text-xl font-semibold mb-3">{title}</h3>
+      <h3 className="mb-3 text-xl font-semibold">{title}</h3>
       <p className="text-gray-600">{description}</p>
     </AnimatedElement>
   );
 };
 
-export default ServiceCard; 
+export default ServiceCard;

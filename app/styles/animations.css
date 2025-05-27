@@ -18,7 +18,9 @@
 /* Animações de Fade */
 .fade-in {
   opacity: 0.9;
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .fade-in.visible {
@@ -30,7 +32,9 @@
 .fade-in-up {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .fade-in-up.visible {
@@ -42,7 +46,9 @@
 .fade-in-down {
   opacity: 0;
   transform: translateY(-20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .fade-in-down.visible {
@@ -54,7 +60,9 @@
 .fade-in-left {
   opacity: 0;
   transform: translateX(-20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .fade-in-left.visible {
@@ -65,7 +73,9 @@
 .fade-in-right {
   opacity: 0;
   transform: translateX(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .fade-in-right.visible {
@@ -77,7 +87,9 @@
 .scale-in {
   opacity: 0.9;
   transform: scale(0.95);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .scale-in.visible {
@@ -127,7 +139,9 @@
 @layer utilities {
   .animate-on-scroll {
     opacity: 0.9;
-    transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition:
+      opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .animate-on-scroll.visible {
