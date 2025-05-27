@@ -27,18 +27,18 @@ export default function RootLayout({
         <Script id="init-animations" strategy="afterInteractive">
           {`
             (function() {
+              let isInitialized = false;
+              let animationTimeout;
+
               function initAnimations() {
-                if (typeof window === 'undefined') return;
+                if (typeof window === 'undefined' || isInitialized) return;
                 
                 const observer = new IntersectionObserver(
                   (entries) => {
                     entries.forEach((entry) => {
                       if (entry.isIntersecting) {
                         if (!entry.target.classList.contains('visible')) {
-                          // Adiciona a classe visible com um pequeno delay para garantir que o SSR foi concluído
-                          requestAnimationFrame(() => {
-                            entry.target.classList.add('visible');
-                          });
+                          entry.target.classList.add('visible');
                           observer.unobserve(entry.target);
                         }
                       }
@@ -46,21 +46,19 @@ export default function RootLayout({
                   },
                   {
                     threshold: 0.1,
-                    rootMargin: '50px',
+                    rootMargin: '100px',
                   }
                 );
 
-                // Seleciona todos os elementos com classes de animação
                 const animatedElements = document.querySelectorAll(
                   '.fade-in-up, .fade-in-down, .fade-in-right, .fade-in-left, .scale-in, .animate-on-scroll'
                 );
 
-                // Adiciona um pequeno delay antes de começar a observar os elementos
-                setTimeout(() => {
-                  animatedElements.forEach((element) => {
-                    observer.observe(element);
-                  });
-                }, 100);
+                animatedElements.forEach((element) => {
+                  observer.observe(element);
+                });
+
+                isInitialized = true;
               }
 
               // Inicializa as animações quando o DOM estiver pronto
@@ -70,14 +68,17 @@ export default function RootLayout({
                 initAnimations();
               }
 
-              // Reinicializa as animações quando houver mudanças no DOM
+              // Otimização do MutationObserver
               const observer = new MutationObserver((mutations) => {
-                mutations.forEach((mutation) => {
-                  if (mutation.addedNodes.length) {
-                    // Adiciona um pequeno delay para garantir que o SSR foi concluído
-                    setTimeout(initAnimations, 100);
+                clearTimeout(animationTimeout);
+                animationTimeout = setTimeout(() => {
+                  const newElements = document.querySelectorAll(
+                    '.fade-in-up:not(.visible), .fade-in-down:not(.visible), .fade-in-right:not(.visible), .fade-in-left:not(.visible), .scale-in:not(.visible), .animate-on-scroll:not(.visible)'
+                  );
+                  if (newElements.length > 0) {
+                    initAnimations();
                   }
-                });
+                }, 100);
               });
 
               observer.observe(document.body, {

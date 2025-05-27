@@ -1,9 +1,13 @@
 /* Animações base */
 .animate-on-scroll {
   opacity: 0;
-  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, opacity;
   transform: translateY(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .animate-on-scroll.visible {
@@ -14,8 +18,12 @@
 .fade-in-up {
   opacity: 0;
   transform: translateY(20px);
-  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .fade-in-up.visible {
@@ -27,8 +35,12 @@
 .fade-in-down {
   opacity: 0;
   transform: translateY(-20px);
-  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .fade-in-down.visible {
@@ -40,8 +52,12 @@
 .fade-in-right {
   opacity: 0;
   transform: translateX(-20px);
-  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .fade-in-right.visible {
@@ -53,8 +69,12 @@
 .fade-in-left {
   opacity: 0;
   transform: translateX(20px);
-  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .fade-in-left.visible {
@@ -66,8 +86,12 @@
 .scale-in {
   opacity: 0;
   transform: scale(0.95);
-  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .scale-in.visible {
