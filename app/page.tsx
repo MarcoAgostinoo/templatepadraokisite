@@ -3,8 +3,7 @@ import { Hero } from "./components/carousel/Hero";
 import FactsSection from "./components/factsSection/FactsSection";
 import Features from "./components/features/Features";
 import ServicesSection from "./components/servicesSection/ServicesSection";
-
-
+import { AnimatedSection } from "./components/features/AnimatedSection";
 
 export default function Home() {
   return (
@@ -14,6 +13,7 @@ export default function Home() {
       <FactsSection />
       <ServicesSection />
       <Features />
+      <AnimatedSection />
     </main>
   );
 }

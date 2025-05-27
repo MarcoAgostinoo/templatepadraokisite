@@ -29,34 +29,41 @@ export default function RootLayout({
             (function() {
               let isInitialized = false;
               let animationTimeout;
+              let observer;
 
               function initAnimations() {
                 if (typeof window === 'undefined' || isInitialized) return;
                 
-                const observer = new IntersectionObserver(
-                  (entries) => {
-                    entries.forEach((entry) => {
-                      if (entry.isIntersecting) {
-                        if (!entry.target.classList.contains('visible')) {
-                          entry.target.classList.add('visible');
-                          observer.unobserve(entry.target);
+                if (!observer) {
+                  observer = new IntersectionObserver(
+                    (entries) => {
+                      entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                          if (!entry.target.classList.contains('visible')) {
+                            requestAnimationFrame(() => {
+                              entry.target.classList.add('visible');
+                              observer.unobserve(entry.target);
+                            });
+                          }
                         }
-                      }
-                    });
-                  },
-                  {
-                    threshold: 0.1,
-                    rootMargin: '100px',
-                  }
-                );
+                      });
+                    },
+                    {
+                      threshold: 0.1,
+                      rootMargin: '50px',
+                    }
+                  );
+                }
 
                 const animatedElements = document.querySelectorAll(
-                  '.fade-in-up, .fade-in-down, .fade-in-right, .fade-in-left, .scale-in, .animate-on-scroll'
+                  '.fade-in-up:not(.visible), .fade-in-down:not(.visible), .fade-in-right:not(.visible), .fade-in-left:not(.visible), .scale-in:not(.visible), .animate-on-scroll:not(.visible)'
                 );
 
-                animatedElements.forEach((element) => {
-                  observer.observe(element);
-                });
+                if (animatedElements.length > 0) {
+                  animatedElements.forEach((element) => {
+                    observer.observe(element);
+                  });
+                }
 
                 isInitialized = true;
               }
@@ -68,20 +75,20 @@ export default function RootLayout({
                 initAnimations();
               }
 
-              // Otimização do MutationObserver
-              const observer = new MutationObserver((mutations) => {
+              // Otimização do MutationObserver com debounce
+              const mutationObserver = new MutationObserver((mutations) => {
                 clearTimeout(animationTimeout);
                 animationTimeout = setTimeout(() => {
                   const newElements = document.querySelectorAll(
                     '.fade-in-up:not(.visible), .fade-in-down:not(.visible), .fade-in-right:not(.visible), .fade-in-left:not(.visible), .scale-in:not(.visible), .animate-on-scroll:not(.visible)'
                   );
                   if (newElements.length > 0) {
-                    initAnimations();
+                    requestAnimationFrame(initAnimations);
                   }
-                }, 100);
+                }, 150);
               });
 
-              observer.observe(document.body, {
+              mutationObserver.observe(document.body, {
                 childList: true,
                 subtree: true,
               });

@@ -1,29 +1,37 @@
-/* Animações base */
-.animate-on-scroll {
-  opacity: 0;
-  transition:
-    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+/* Animações base - definem o estado inicial */
+.animate-initial {
+  opacity: 0.3;
   will-change: transform, opacity;
-  transform: translateY(0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  transition-property: transform, opacity;
+  transition-duration: 0.8s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.animate-on-scroll.visible {
+/* Estado final - quando 'visible' é adicionado */
+.animate-initial.visible {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+/* Animações de Fade */
+.fade-in {
+  opacity: 0.3;
+  transition: opacity 0.6s ease-out;
+}
+
+.fade-in.visible {
   opacity: 1;
 }
 
-/* Fade in com slide up */
+/* Fade com movimento para cima */
 .fade-in-up {
-  opacity: 0;
+  opacity: 0.3;
   transform: translateY(20px);
   transition:
-    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .fade-in-up.visible {
@@ -31,16 +39,13 @@
   transform: translateY(0);
 }
 
-/* Fade in com slide down */
+/* Fade com movimento para baixo */
 .fade-in-down {
-  opacity: 0;
+  opacity: 0.3;
   transform: translateY(-20px);
   transition:
-    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .fade-in-down.visible {
@@ -48,33 +53,13 @@
   transform: translateY(0);
 }
 
-/* Fade in com slide right */
-.fade-in-right {
-  opacity: 0;
+/* Fade com movimento lateral */
+.fade-in-left {
+  opacity: 0.3;
   transform: translateX(-20px);
   transition:
-    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.fade-in-right.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Fade in com slide left */
-.fade-in-left {
-  opacity: 0;
-  transform: translateX(20px);
-  transition:
-    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .fade-in-left.visible {
@@ -82,16 +67,26 @@
   transform: translateX(0);
 }
 
-/* Scale in */
+.fade-in-right {
+  opacity: 0.3;
+  transform: translateX(20px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Animações de escala */
 .scale-in {
-  opacity: 0;
+  opacity: 0.3;
   transform: scale(0.95);
   transition:
-    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .scale-in.visible {
@@ -99,58 +94,45 @@
   transform: scale(1);
 }
 
-/* Delays de animação */
+/* Classes de delay */
 .delay-100 {
   transition-delay: 100ms;
 }
-
 .delay-200 {
   transition-delay: 200ms;
 }
-
 .delay-300 {
   transition-delay: 300ms;
 }
-
 .delay-400 {
   transition-delay: 400ms;
 }
-
 .delay-500 {
   transition-delay: 500ms;
 }
 
-/* Durações de animação */
+/* Classes de duração */
 .duration-300 {
   transition-duration: 300ms;
 }
-
 .duration-500 {
   transition-duration: 500ms;
 }
-
 .duration-700 {
   transition-duration: 700ms;
 }
-
 .duration-1000 {
   transition-duration: 1000ms;
-}
-
-.duration-1500 {
-  transition-duration: 1500ms;
 }
 
 /* Remove a camada de utilidades duplicada */
 @layer utilities {
   .animate-on-scroll {
-    opacity: 0;
+    opacity: 0.3;
     transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-    visibility: hidden;
   }
 
   .animate-on-scroll.visible {
     opacity: 1;
-    visibility: visible;
   }
 }
