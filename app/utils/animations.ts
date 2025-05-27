@@ -1,4 +1,6 @@
 export function initAnimations() {
+  if (typeof window === "undefined") return;
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -12,16 +14,55 @@ export function initAnimations() {
     },
     {
       threshold: 0.1,
-      rootMargin: "0px",
+      rootMargin: "50px",
     },
   );
 
   // Observa todos os elementos com classes de animação
-  document
-    .querySelectorAll(
-      ".fade-in-up, .fade-in-down, .fade-in-right, .animate-on-scroll",
-    )
-    .forEach((element) => {
-      observer.observe(element);
+  const animatedElements = document.querySelectorAll(
+    ".fade-in-up, .fade-in-down, .fade-in-right, .fade-in-left, .scale-in, .animate-on-scroll",
+  );
+
+  animatedElements.forEach((element) => {
+    observer.observe(element);
+  });
+
+  return () => {
+    animatedElements.forEach((element) => {
+      observer.unobserve(element);
     });
+  };
+}
+
+// Função para adicionar animação a um elemento específico
+export function addAnimationToElement(
+  element: HTMLElement,
+  animationClass: string,
+) {
+  if (!element) return;
+
+  element.classList.add(animationClass);
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (!entry.target.classList.contains("visible")) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: "50px",
+    },
+  );
+
+  observer.observe(element);
+
+  return () => {
+    observer.unobserve(element);
+  };
 }

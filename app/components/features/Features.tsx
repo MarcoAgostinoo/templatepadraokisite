@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faPlay } from "@fortawesome/free-solid-svg-icons";
-import styles from "./Features.module.css";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
 const features = [
@@ -23,7 +22,7 @@ export default function Features() {
     <section className="w-full bg-white py-16">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center gap-10 lg:flex-row">
-          {/* Imagem e botão de vídeo */}
+          {/* Imagem */}
           <div className="relative flex w-full items-center justify-center lg:w-1/2">
             <Image
               src="/about1.jpg"
@@ -38,24 +37,6 @@ export default function Features() {
               }}
               priority
             />
-            {/* Botão Play sobreposto */}
-            <a
-              href="#video-modal"
-              className="absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2"
-              aria-label="Assistir vídeo"
-              style={{ textDecoration: "none" }}
-            >
-              <span className="flex h-24 w-24 items-center justify-center rounded-full border-4 border-white bg-white shadow-lg transition hover:scale-105">
-                <span
-                  className={`flex h-16 w-16 items-center justify-center rounded-full bg-[#FF6F0F] ${styles.pulse}`}
-                >
-                  <FontAwesomeIcon
-                    icon={faPlay}
-                    className="pl-1 text-3xl text-white"
-                  />
-                </span>
-              </span>
-            </a>
           </div>
           {/* Texto e features */}
           <div className="flex w-full flex-col justify-center lg:w-1/2">
@@ -87,28 +68,6 @@ export default function Features() {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Modal do vídeo */}
-      <div id="video-modal" className={styles.modal}>
-        <div className={styles["modal-content"]}>
-          <div className={styles["modal-header"]}>
-            <h3>Vídeo do Youtube</h3>
-            <a href="#" className={styles.close}>
-              &times;
-            </a>
-          </div>
-          <div className={styles["modal-body"]}>
-            <div className="aspect-w-16 aspect-h-9">
-              <iframe
-                src="https://www.youtube.com/embed/DWRcNpR6Kdc"
-                title="YouTube video"
-                allowFullScreen
-                className="h-72 w-full rounded"
-              />
             </div>
           </div>
         </div>

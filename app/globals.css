@@ -5,50 +5,9 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Animações base */
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-  visibility: hidden;
-}
-
-.fade-in-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-  visibility: visible;
-}
-
-.fade-in-down {
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-  visibility: hidden;
-}
-
-.fade-in-down.visible {
-  opacity: 1;
-  transform: translateY(0);
-  visibility: visible;
-}
-
-.fade-in-right {
-  opacity: 0;
-  transform: translateX(-20px);
-  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-  visibility: hidden;
-}
-
-.fade-in-right.visible {
-  opacity: 1;
-  transform: translateX(0);
-  visibility: visible;
-}
-
 /* Estilo para o bullet de paginação ativo do Swiper */
 .swiper-pagination-custom .swiper-pagination-bullet-active {
   @apply scale-125 bg-blue-500;
-  /* Cor e tamanho do bullet ativo */
 }
 
 /* Ajuste de posicionamento dos textos em telas grandes durante a rolagem */
@@ -81,26 +40,15 @@
 .animate-slideInUp {
   animation: slideInUp 0.6s ease-out forwards;
   opacity: 0;
-  /* Começa invisível até a animação rodar */
 }
 
-/* Utilitários de delay para animação (opcional, mas útil) */
+/* Utilitários de delay para animação */
 .animation-delay-300 {
   animation-delay: 0.3s;
 }
 
 .animation-delay-600 {
   animation-delay: 0.6s;
-}
-
-/* Classes de animação para elementos específicos */
-.animate-on-scroll {
-  opacity: 0;
-  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.animate-on-scroll.visible {
-  opacity: 1;
 }
 
 /* Efeitos de hover */
@@ -137,10 +85,10 @@
 }
 
 .swiper-pagination-bullet {
-  background-color: #4b5563; /* gray-600 */
+  background-color: #4b5563;
   opacity: 1;
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #f97316; /* orange-500 */
+  background-color: #f97316;
 }

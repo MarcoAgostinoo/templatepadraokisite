@@ -1,71 +1,120 @@
+/* Animações base */
+.animate-on-scroll {
+  opacity: 0;
+  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
+  transform: translateY(0);
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+}
+
+/* Fade in com slide up */
 .fade-in-up {
   opacity: 0;
   transform: translateY(20px);
   transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, opacity;
-  visibility: hidden;
 }
 
 .fade-in-up.visible {
   opacity: 1;
   transform: translateY(0);
-  visibility: visible;
 }
 
+/* Fade in com slide down */
 .fade-in-down {
   opacity: 0;
   transform: translateY(-20px);
   transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, opacity;
-  visibility: hidden;
 }
 
 .fade-in-down.visible {
   opacity: 1;
   transform: translateY(0);
-  visibility: visible;
 }
 
+/* Fade in com slide right */
 .fade-in-right {
   opacity: 0;
   transform: translateX(-20px);
   transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, opacity;
-  visibility: hidden;
 }
 
 .fade-in-right.visible {
   opacity: 1;
   transform: translateX(0);
-  visibility: visible;
 }
 
+/* Fade in com slide left */
 .fade-in-left {
   opacity: 0;
   transform: translateX(20px);
   transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, opacity;
-  visibility: hidden;
 }
 
 .fade-in-left.visible {
   opacity: 1;
   transform: translateX(0);
-  visibility: visible;
 }
 
+/* Scale in */
 .scale-in {
   opacity: 0;
   transform: scale(0.95);
   transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, opacity;
-  visibility: hidden;
 }
 
 .scale-in.visible {
   opacity: 1;
   transform: scale(1);
-  visibility: visible;
+}
+
+/* Delays de animação */
+.delay-100 {
+  transition-delay: 100ms;
+}
+
+.delay-200 {
+  transition-delay: 200ms;
+}
+
+.delay-300 {
+  transition-delay: 300ms;
+}
+
+.delay-400 {
+  transition-delay: 400ms;
+}
+
+.delay-500 {
+  transition-delay: 500ms;
+}
+
+/* Durações de animação */
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+.duration-500 {
+  transition-duration: 500ms;
+}
+
+.duration-700 {
+  transition-duration: 700ms;
+}
+
+.duration-1000 {
+  transition-duration: 1000ms;
+}
+
+.duration-1500 {
+  transition-duration: 1500ms;
 }
 
 /* Remove a camada de utilidades duplicada */

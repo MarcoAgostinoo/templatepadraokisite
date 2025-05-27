@@ -56,51 +56,159 @@ Este template foi projetado para ser facilmente personalizado. Você pode:
 
 O template implementa um sistema de animações otimizado para SSR, utilizando uma combinação de CSS e Intersection Observer.
 
-### 1. Classes CSS de Animação
+### Como Animar Elementos
 
-```css
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-  visibility: hidden;
-}
+#### 1. Animações Básicas
 
-.fade-in-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-  visibility: visible;
-}
-```
-
-### 2. Intersection Observer
-
-```javascript
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        if (!entry.target.classList.contains("visible")) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      }
-    });
-  },
-  {
-    threshold: 0.5,
-    rootMargin: "0px",
-  },
-);
-```
-
-### 3. Implementação no Componente
+Para animar qualquer elemento, adicione a classe `animate-on-scroll` junto com uma das classes de animação:
 
 ```jsx
-<div className="animate-on-scroll fade-in-right w-1/2 self-start px-3">
-    <img ... />
+// Animação de fade in com slide up
+<div className="animate-on-scroll fade-in-up">
+  Seu conteúdo aqui
+</div>
+
+// Animação de fade in com slide down
+<div className="animate-on-scroll fade-in-down">
+  Seu conteúdo aqui
+</div>
+
+// Animação de fade in com slide right
+<div className="animate-on-scroll fade-in-right">
+  Seu conteúdo aqui
+</div>
+
+// Animação de fade in com slide left
+<div className="animate-on-scroll fade-in-left">
+  Seu conteúdo aqui
+</div>
+
+// Animação de scale in
+<div className="animate-on-scroll scale-in">
+  Seu conteúdo aqui
 </div>
 ```
+
+#### 2. Animações com Delay
+
+Para adicionar um delay na animação, use as classes de delay:
+
+```jsx
+// Delay de 100ms
+<div className="animate-on-scroll fade-in-up delay-100">
+  Conteúdo com delay
+</div>
+
+// Delay de 300ms
+<div className="animate-on-scroll fade-in-up delay-300">
+  Conteúdo com delay maior
+</div>
+```
+
+#### 3. Animações com Duração Personalizada
+
+Para personalizar a duração da animação:
+
+```jsx
+// Duração de 300ms
+<div className="animate-on-scroll fade-in-up duration-300">
+  Animação rápida
+</div>
+
+// Duração de 1.5s
+<div className="animate-on-scroll fade-in-up duration-1500">
+  Animação mais lenta
+</div>
+```
+
+#### 4. Animações em Imagens
+
+Para animar imagens, use o componente Image do Next.js:
+
+```jsx
+import Image from 'next/image';
+
+// Imagem com animação de fade in
+<div className="animate-on-scroll fade-in-up">
+  <Image
+    src="/sua-imagem.jpg"
+    alt="Descrição da imagem"
+    width={500}
+    height={300}
+    className="w-full h-auto"
+  />
+</div>
+
+// Imagem com animação e delay
+<div className="animate-on-scroll fade-in-right delay-300">
+  <Image
+    src="/sua-imagem.jpg"
+    alt="Descrição da imagem"
+    width={500}
+    height={300}
+    className="w-full h-auto"
+  />
+</div>
+```
+
+#### 5. Animações em Textos
+
+Para animar textos:
+
+```jsx
+// Título com animação
+<h1 className="animate-on-scroll fade-in-up">
+  Seu título aqui
+</h1>
+
+// Parágrafo com animação e delay
+<p className="animate-on-scroll fade-in-up delay-200">
+  Seu texto aqui
+</p>
+
+// Texto com animação personalizada
+<div className="animate-on-scroll fade-in-right duration-1000">
+  Texto com animação mais lenta
+</div>
+```
+
+#### 6. Animações em Listas
+
+Para animar itens de lista sequencialmente:
+
+```jsx
+<ul>
+  <li className="animate-on-scroll fade-in-up delay-100">
+    Item 1
+  </li>
+  <li className="animate-on-scroll fade-in-up delay-200">
+    Item 2
+  </li>
+  <li className="animate-on-scroll fade-in-up delay-300">
+    Item 3
+  </li>
+</ul>
+```
+
+### Dicas de Uso
+
+1. **Prioridade de Carregamento**
+   - Use a propriedade `priority` no componente Image para imagens acima da dobra
+   - Adicione delays maiores para elementos abaixo da dobra
+
+2. **Performance**
+   - Evite animar muitos elementos simultaneamente
+   - Use delays para distribuir as animações
+   - Mantenha as animações simples e suaves
+
+3. **SEO e Acessibilidade**
+   - Todas as animações são otimizadas para SEO
+   - O conteúdo permanece acessível para leitores de tela
+   - As animações não afetam a indexação do conteúdo
+
+4. **Responsividade**
+   - As animações funcionam em todos os dispositivos
+   - Ajuste os delays e durações conforme necessário para dispositivos móveis
 
 ## 🤖 Prompt para IA
 
