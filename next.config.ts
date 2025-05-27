@@ -9,7 +9,6 @@ const nextConfig: NextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   reactStrictMode: true,
-  swcMinify: true,
   compress: true,
   poweredByHeader: false,
   compiler: {
