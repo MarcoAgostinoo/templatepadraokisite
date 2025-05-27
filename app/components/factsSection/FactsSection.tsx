@@ -6,6 +6,7 @@ import {
   FaProjectDiagram,
 } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import { ThemeProvider } from "flowbite-react";
 
 const facts = [
   {
@@ -89,28 +90,30 @@ export default function FactsSection() {
   }, [isVisible]);
 
   return (
-    <div
-      id="facts-section"
-      className="my-8 flex min-h-[400px] w-full items-center justify-center bg-blue-900 px-4 py-8 sm:my-12 sm:h-96 sm:px-2 sm:py-12"
-    >
-      <div className="mx-auto mt-4 flex max-w-7xl flex-wrap items-center justify-center gap-4 sm:gap-8">
-        {facts.map((fact, idx) => (
-          <div
-            key={fact.label}
-            className="animate-on-scroll fade-in-up hover-scale flex w-full max-w-xs min-w-[200px] flex-1 items-center justify-center rounded-lg border border-gray-700 bg-transparent p-4 text-center transition-all sm:w-[calc(50%-1rem)] sm:min-w-[250px] sm:p-8 lg:w-[calc(25%-1.5rem)]"
-          >
-            <div className="flex flex-col items-center justify-center">
-              {fact.icon}
-              <h1 className="text-primary mb-2 text-4xl font-bold text-orange-500 sm:text-5xl md:text-6xl">
-                {counters[idx]}
-              </h1>
-              <span className="text-base font-semibold text-orange-500 sm:text-lg">
-                {fact.label}
-              </span>
+    <ThemeProvider>
+      <div
+        id="facts-section"
+        className="my-8 flex min-h-[400px] w-full items-center justify-center bg-blue-900 px-4 py-8 sm:my-12 sm:h-96 sm:px-2 sm:py-12 dark:bg-gray-800"
+      >
+        <div className="mx-auto mt-4 flex max-w-7xl flex-wrap items-center justify-center gap-4 sm:gap-8">
+          {facts.map((fact, idx) => (
+            <div
+              key={fact.label}
+              className="animate-on-scroll fade-in-up hover-scale flex w-full max-w-xs min-w-[200px] flex-1 items-center justify-center rounded-lg border border-gray-700 bg-transparent p-4 text-center transition-all sm:w-[calc(50%-1rem)] sm:min-w-[250px] sm:p-8 lg:w-[calc(25%-1.5rem)] dark:border-gray-600"
+            >
+              <div className="flex flex-col items-center justify-center">
+                {fact.icon}
+                <h1 className="text-primary mb-2 text-4xl font-bold text-orange-500 sm:text-5xl md:text-6xl">
+                  {counters[idx]}
+                </h1>
+                <span className="text-base font-semibold text-orange-500 sm:text-lg">
+                  {fact.label}
+                </span>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 }

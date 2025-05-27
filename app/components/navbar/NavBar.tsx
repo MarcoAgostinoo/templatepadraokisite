@@ -25,51 +25,54 @@ export function NavBar() {
 
   return (
     <div className="flex h-12 text-white">
-      <div className="relative w-8/12 overflow-hidden bg-blue-900 md:overflow-visible">
-        <div className="absolute top-0 right-0 h-full w-16 -skew-x-35 transform bg-blue-900 p-16"></div>
-        <div className="flex">
-          <p className="font- animate-on-scroll fade-in-up relative z-10 mt-2 ml-8 text-xl font-bold">
-            Siga-nos:{" "}
-          </p>
-          <div className="mt-3 ml-4 flex gap-3">
-            <Link
-              href="https://instagram.com"
-              target="_blank"
-              className="transition-all hover:scale-110 hover:text-gray-200"
-            >
-              <FaInstagram size={24} />
-            </Link>
-            <Link
-              href="https://facebook.com"
-              target="_blank"
-              className="transition-all hover:scale-110 hover:text-gray-200"
-            >
-              <FaFacebook size={24} />
-            </Link>
-            <Link
-              href="https://linkedin.com"
-              target="_blank"
-              className="transition-all hover:scale-110 hover:text-gray-200"
-            >
-              <FaLinkedin size={24} />
-            </Link>
+      <div className="hidden w-full overflow-hidden md:flex">
+        <div className="relative w-8/12 overflow-hidden bg-gradient-to-r from-blue-900 to-blue-800 md:overflow-visible">
+          <div className="absolute top-0 -right-6 -skew-x-35 bg-gradient-to-r from-blue-800 to-blue-900 p-6"></div>{" "}
+          <div className="flex items-center">
+            <p className="font- animate-on-scroll fade-in-up relative z-10 mt-2 ml-8 text-lg font-semibold tracking-wide">
+              Siga-nos:{" "}
+            </p>
+            <div className="mt-3 ml-4 flex gap-4">
+              <Link
+                href="https://instagram.com"
+                target="_blank"
+                className="transition-all hover:scale-110 hover:text-gray-200 hover:shadow-lg"
+              >
+                <FaInstagram size={22} />
+              </Link>
+              <Link
+                href="https://facebook.com"
+                target="_blank"
+                className="transition-all hover:scale-110 hover:text-gray-200 hover:shadow-lg"
+              >
+                <FaFacebook size={22} />
+              </Link>
+              <Link
+                href="https://linkedin.com"
+                target="_blank"
+                className="transition-all hover:scale-110 hover:text-gray-200 hover:shadow-lg"
+              >
+                <FaLinkedin size={22} />
+              </Link>
+            </div>
           </div>
         </div>
+        <div className="w-4/12 bg-gradient-to-r from-orange-500 to-orange-600">
+          <p className="animate-on-scroll fade-in-up mt-2 ml-16 text-lg font-semibold tracking-wide">
+            Telefone: 91907-2390{" "}
+          </p>
+        </div>
       </div>
-      <div className="w-4/12 bg-orange-500">
-        <p className="animate-on-scroll fade-in-up mt-2 ml-16 text-xl font-bold">
-          Telefone: 91907-2390{" "}
-        </p>
-      </div>
+
       <Navbar
         fluid
-        className={`fixed z-50 h-24 w-full transition-all duration-300 ${
+        className={`fixed z-50 h-20 w-full transition-all duration-300 ${
           isScrolled
             ? "top-0 bg-white/90 text-black shadow-lg backdrop-blur-sm dark:bg-gray-900/90"
-            : "top-10 bg-transparent dark:bg-transparent"
+            : "top-0 bg-transparent md:top-10 dark:bg-transparent"
         }`}
       >
-        <div className="container mx-auto flex flex-wrap items-center justify-between px-0 py-3">
+        <div className="container mx-auto flex flex-wrap items-center justify-between px-0 py-0">
           <NavbarBrand
             as={Link}
             href="/"
