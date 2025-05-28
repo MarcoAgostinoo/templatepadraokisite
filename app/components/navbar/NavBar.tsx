@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 import {
   FaInstagram,
   FaFacebook,
+  FaTwitter,
   FaLinkedin,
   FaWhatsapp,
 } from "react-icons/fa";
@@ -36,7 +37,7 @@ export function NavBar() {
   }, []);
 
   return (
-    <div className="flex h-12 text-white">
+    <div className="flex h-0 text-white lg:h-12">
       <div className="hidden w-full overflow-hidden md:flex">
         <div className="relative w-8/12 overflow-hidden bg-gradient-to-r from-orange-500 to-orange-600 md:overflow-visible dark:from-orange-600 dark:to-orange-700">
           <div className="absolute top-0 -right-6 -skew-x-35 bg-gradient-to-r from-orange-600 to-orange-700 p-6 dark:from-orange-700 dark:to-orange-800"></div>{" "}
@@ -66,6 +67,13 @@ export function NavBar() {
               >
                 <FaLinkedin size={22} />
               </Link>
+              <Link
+                href="https://FaTwitter.com"
+                target="_blank"
+                className="text-white transition-all hover:scale-110 hover:text-gray-200 hover:shadow-lg dark:text-gray-100"
+              >
+                <FaTwitter size={22} />
+              </Link>
             </div>
           </div>
         </div>
@@ -91,7 +99,7 @@ export function NavBar() {
             className="animate-on-scroll fade-in-up"
           >
             <span
-              className={`bg-gradient-to-r ${isScrolled ? "scroll-text-adjust from-orange-400 to-orange-500" : "from-blue-200 to-indigo-300"} bg-clip-text text-4xl font-bold text-transparent brightness-110 contrast-125 filter transition-all duration-300 hover:scale-105 hover:from-blue-800 hover:to-indigo-800 hover:brightness-125 dark:from-blue-300 dark:to-indigo-200 dark:hover:from-blue-800 dark:hover:to-indigo-800`}
+              className={`bg-gradient-to-r ${isScrolled ? "scroll-text-adjust from-orange-400 to-orange-500" : "from-white to-white"} bg-clip-text text-4xl font-bold text-transparent brightness-110 contrast-125 filter transition-all duration-300 hover:scale-105 hover:from-blue-600 hover:to-indigo-600 hover:brightness-125 dark:from-blue-300 dark:to-indigo-200 dark:hover:from-blue-600 dark:hover:to-indigo-600`}
             >
               KiSite
             </span>
@@ -102,7 +110,7 @@ export function NavBar() {
             {mounted && (
               <button
                 onClick={toggleTheme}
-                className="rounded-full bg-white/50 p-2 transition-all hover:scale-110 hover:bg-gray-100 focus:ring-2 focus:ring-blue-300 focus:outline-none dark:bg-gray-800/50 dark:hover:bg-gray-700 dark:focus:ring-blue-600"
+                className="rounded-full bg-white/10 p-2 transition-all hover:scale-110 hover:bg-gray-100 focus:ring-2 focus:ring-blue-300 focus:outline-none dark:bg-gray-800/50 dark:hover:bg-gray-700 dark:focus:ring-blue-600"
               >
                 {theme === "dark" ? (
                   <HiSun className="h-5 w-5 text-gray-800 dark:text-gray-200" />
@@ -216,16 +224,16 @@ function NavItem({ href, children, isActive, isScrolled }: NavItemProps) {
       className={`group relative block py-2 text-lg font-semibold transition-all hover:scale-105 lg:py-1 ${
         isScrolled
           ? isActive
-            ? "text-blue-700 drop-shadow-[0_1px_2px_rgba(0,0,0,0.1)] dark:text-blue-300"
-            : "text-gray-900 drop-shadow-[0_1px_2px_rgba(0,0,0,0.1)] hover:text-blue-900 dark:text-white dark:hover:text-blue-400"
+            ? "text-blue-700 drop-shadow-[0_1px_2px_rgba(0,0,0,0.1)] dark:text-black lg:dark:text-blue-300"
+            : "text-gray-900 drop-shadow-[0_1px_2px_rgba(0,0,0,0.1)] hover:text-blue-900 dark:text-black dark:hover:text-blue-400 lg:dark:text-white"
           : isActive
             ? "font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
-            : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] hover:text-gray-200"
+            : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] hover:text-gray-800"
       }`}
     >
       {children}
       <span
-        className={`absolute bottom-0 left-0 h-0.5 w-0 ${isScrolled ? "bg-blue-700 dark:bg-blue-300" : "bg-white"} transition-all duration-300 group-hover:w-full ${
+        className={`absolute bottom-0 left-0 h-0.5 w-0 ${isScrolled ? "bg-blue-700 dark:bg-black lg:dark:bg-blue-800" : "bg-white"} transition-all duration-300 group-hover:w-full ${
           isActive ? "w-full" : ""
         }`}
       ></span>

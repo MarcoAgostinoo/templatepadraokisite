@@ -6,6 +6,8 @@ import ServicesSection from "./components/index/servicesSection/ServicesSection"
 import { AnimatedSection } from "./components/index/features/AnimatedSection";
 import EmblaCarousel from "./components/index/emblaCaroussel/EmblaCaroussel";
 import { EmblaOptionsType } from "embla-carousel";
+import { AccordionFaq } from "./components/index/accordion/AccordionFaq";
+
 
 const OPTIONS: EmblaOptionsType = {
   loop: true,
@@ -37,6 +39,7 @@ export default function Home() {
         autoplayInterval={5000}
       />
       <AnimatedSection />
+      <AccordionFaq />
     </main>
   );
 }
