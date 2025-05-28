@@ -1,6 +1,5 @@
 "use client";
 import {
-  DarkThemeToggle,
   Navbar,
   NavbarBrand,
   NavbarCollapse,
@@ -9,9 +8,17 @@ import {
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
+import { useTheme } from "@/app/hooks/useTheme";
+import { HiSun, HiMoon } from "react-icons/hi";
 
 export function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Handle scroll effect for navbar
   useEffect(() => {
@@ -87,7 +94,18 @@ export function NavBar() {
 
           <div className="flex items-center gap-3 lg:order-last">
             {/* Dark Mode Toggle */}
-            <DarkThemeToggle className="rounded-full bg-white/50 p-2 transition-all hover:scale-110 hover:bg-gray-100 focus:ring-2 focus:ring-blue-300 focus:outline-none dark:bg-gray-800/50 dark:hover:bg-gray-700 dark:focus:ring-blue-600" />
+            {mounted && (
+              <button
+                onClick={toggleTheme}
+                className="rounded-full bg-white/50 p-2 transition-all hover:scale-110 hover:bg-gray-100 focus:ring-2 focus:ring-blue-300 focus:outline-none dark:bg-gray-800/50 dark:hover:bg-gray-700 dark:focus:ring-blue-600"
+              >
+                {theme === "dark" ? (
+                  <HiSun className="h-5 w-5 text-gray-800 dark:text-gray-200" />
+                ) : (
+                  <HiMoon className="h-5 w-5 text-gray-800 dark:text-gray-200" />
+                )}
+              </button>
+            )}
 
             {/* Sign In Button - Desktop */}
             <div className="hidden md:block">

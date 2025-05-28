@@ -11,7 +11,7 @@ import {
 export function FooTer() {
   return (
     <ThemeProvider>
-      <Footer container className="rounded-none bg-white dark:bg-gray-800">
+      <Footer container className="rounded-none bg-white dark:bg-gray-900">
         <div className="w-full text-center">
           <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
             <FooterBrand
