@@ -130,7 +130,7 @@ const EmblaCarousel: React.FC<PropType> = ({
         </h2>
       </div>
       <section className={`${styles.embla} p-6`}>
-        <div className={`${styles.embla__viewport}`}>
+        <div className={`${styles.embla__viewport}`} ref={emblaRef}>
           <div className={styles.embla__container}>
             {slides.map((index) => (
               <div
@@ -157,9 +157,7 @@ const EmblaCarousel: React.FC<PropType> = ({
                       width={800}
                       height={500}
                     />
-                    <div
-                      className={`${styles.embla__slide__overlay}`}
-                    >
+                    <div className={`${styles.embla__slide__overlay}`}>
                       <h3
                         className={`${styles.embla__slide__title} text-orange-500`}
                       >
