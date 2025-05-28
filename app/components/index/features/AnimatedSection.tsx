@@ -1,4 +1,4 @@
-import { AnimatedElement } from "../../styles/AnimatedElement";
+import { AnimatedElement } from "../../../styles/AnimatedElement";
 import { lazy, Suspense } from "react";
 
 // Lazy loading para componentes pesados
@@ -27,7 +27,7 @@ export const AnimatedSection = () => {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <Suspense
             fallback={
-              <div className="h-48 animate-pulse rounded-lg bg-gray-100 dark:bg-gray-800" />
+              <div className="h-48 animate-pulse bg-gray-100 dark:bg-gray-800" />
             }
           >
             <ServiceCard
@@ -40,7 +40,7 @@ export const AnimatedSection = () => {
 
           <Suspense
             fallback={
-              <div className="h-48 animate-pulse rounded-lg bg-gray-100 dark:bg-gray-800" />
+              <div className="h-48 animate-pulse bg-gray-100 dark:bg-gray-800" />
             }
           >
             <ServiceCard
@@ -53,7 +53,7 @@ export const AnimatedSection = () => {
 
           <Suspense
             fallback={
-              <div className="h-48 animate-pulse rounded-lg bg-gray-100 dark:bg-gray-800" />
+              <div className="h-48 animate-pulse bg-gray-100 dark:bg-gray-800" />
             }
           >
             <ServiceCard
@@ -70,7 +70,7 @@ export const AnimatedSection = () => {
           animationClass="fade-in-down"
           delayClass="delay-500"
           durationClass="duration-700"
-          className="rounded-xl bg-blue-900 p-8 text-center text-white dark:bg-blue-800"
+          className=" bg-blue-900 p-8 text-center text-white dark:bg-blue-800"
         >
           <h3 className="mb-4 text-2xl font-bold">
             Comece seu projeto hoje mesmo
@@ -78,7 +78,7 @@ export const AnimatedSection = () => {
           <p className="mb-6">
             Transforme suas ideias em realidade com nossa equipe especializada
           </p>
-          <button className="rounded-full bg-orange-500 px-6 py-2 font-semibold text-white transition-colors hover:bg-orange-600">
+          <button className=" bg-orange-500 px-6 py-2 font-semibold text-white transition-colors hover:bg-orange-600">
             Fale Conosco
           </button>
         </AnimatedElement>

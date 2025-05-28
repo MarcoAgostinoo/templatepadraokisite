@@ -7,7 +7,12 @@ import {
 } from "flowbite-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaFacebook,
+  FaLinkedin,
+  FaWhatsapp,
+} from "react-icons/fa";
 import { useTheme } from "@/app/hooks/useTheme";
 import { HiSun, HiMoon } from "react-icons/hi";
 
@@ -33,39 +38,39 @@ export function NavBar() {
   return (
     <div className="flex h-12 text-white">
       <div className="hidden w-full overflow-hidden md:flex">
-        <div className="relative w-8/12 overflow-hidden bg-gradient-to-r from-blue-900 to-blue-800 md:overflow-visible">
-          <div className="absolute top-0 -right-6 -skew-x-35 bg-gradient-to-r from-blue-800 to-blue-900 p-6"></div>{" "}
+        <div className="relative w-8/12 overflow-hidden bg-gradient-to-r from-orange-500 to-orange-600 md:overflow-visible dark:from-orange-600 dark:to-orange-700">
+          <div className="absolute top-0 -right-6 -skew-x-35 bg-gradient-to-r from-orange-600 to-orange-700 p-6 dark:from-orange-700 dark:to-orange-800"></div>{" "}
           <div className="flex items-center">
-            <p className="font- animate-on-scroll fade-in-up relative z-10 mt-2 ml-8 text-lg font-semibold tracking-wide">
+            <p className="font- animate-on-scroll fade-in-up relative z-10 mt-2 ml-8 text-lg font-semibold tracking-wide text-white dark:text-gray-100">
               Siga-nos:{" "}
             </p>
             <div className="mt-3 ml-4 flex gap-4">
               <Link
                 href="https://instagram.com"
                 target="_blank"
-                className="transition-all hover:scale-110 hover:text-gray-200 hover:shadow-lg"
+                className="text-white transition-all hover:scale-110 hover:text-gray-200 hover:shadow-lg dark:text-gray-100"
               >
                 <FaInstagram size={22} />
               </Link>
               <Link
                 href="https://facebook.com"
                 target="_blank"
-                className="transition-all hover:scale-110 hover:text-gray-200 hover:shadow-lg"
+                className="text-white transition-all hover:scale-110 hover:text-gray-200 hover:shadow-lg dark:text-gray-100"
               >
                 <FaFacebook size={22} />
               </Link>
               <Link
                 href="https://linkedin.com"
                 target="_blank"
-                className="transition-all hover:scale-110 hover:text-gray-200 hover:shadow-lg"
+                className="text-white transition-all hover:scale-110 hover:text-gray-200 hover:shadow-lg dark:text-gray-100"
               >
                 <FaLinkedin size={22} />
               </Link>
             </div>
           </div>
         </div>
-        <div className="w-4/12 bg-gradient-to-r from-orange-500 to-orange-600">
-          <p className="animate-on-scroll fade-in-up mt-2 ml-16 text-lg font-semibold tracking-wide">
+        <div className="w-4/12 bg-gradient-to-r from-blue-900 to-blue-800 dark:from-blue-950 dark:to-blue-900">
+          <p className="animate-on-scroll fade-in-up mt-2 ml-16 text-lg font-semibold tracking-wide text-white dark:text-gray-100">
             Telefone: 91907-2390{" "}
           </p>
         </div>
@@ -110,10 +115,14 @@ export function NavBar() {
             {/* Sign In Button - Desktop */}
             <div className="hidden md:block">
               <Link
-                href="/login"
-                className="rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2 font-medium text-white shadow-md transition-all hover:scale-105 hover:from-blue-700 hover:to-indigo-700 hover:shadow-lg"
+                href="https://wa.me/5511933891700?text=Olá! Gostaria de saber mais sobre os serviços da Kisite"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-[#25D366] px-6 py-3 text-white shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-[#1EBE57]"
+                aria-label="Contato via WhatsApp"
               >
-                Sign In
+                <FaWhatsapp className="text-2xl" />
+                <span className="font-semibold">WhatsApp</span>
               </Link>
             </div>
 
@@ -140,7 +149,7 @@ export function NavBar() {
                 <span
                   className={`text-normal-adjust ${isScrolled ? "scroll-text-adjust" : ""}`}
                 >
-                  About
+                  Sobre
                 </span>
               </NavItem>
               <NavItem
@@ -151,32 +160,38 @@ export function NavBar() {
                 <span
                   className={`text-normal-adjust ${isScrolled ? "scroll-text-adjust" : ""}`}
                 >
-                  Services
+                  Serviços
                 </span>
               </NavItem>
               <NavItem href="#pricing" isActive={false} isScrolled={isScrolled}>
                 <span
                   className={`text-normal-adjust ${isScrolled ? "scroll-text-adjust" : ""}`}
                 >
-                  Pricing
+                  Portifólio
                 </span>
               </NavItem>
               <NavItem href="#contact" isActive={false} isScrolled={isScrolled}>
                 <span
                   className={`text-normal-adjust ${isScrolled ? "scroll-text-adjust" : ""}`}
                 >
-                  Contact
+                  Contato
                 </span>
               </NavItem>
 
               {/* Sign In Button - Mobile Only */}
               <div className="pt-2 lg:hidden">
-                <Link
-                  href="/login"
-                  className="inline-block w-full rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2.5 text-center font-medium text-white transition-all hover:scale-105 hover:shadow-lg"
-                >
-                  Sign In
-                </Link>
+                <div className="md:block">
+                  <Link
+                    href="https://wa.me/5511933891700?text=Olá! Gostaria de saber mais sobre os serviços da Kisite"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 bg-[#25D366] px-6 py-3 text-white shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-[#1EBE57]"
+                    aria-label="Contato via WhatsApp"
+                  >
+                    <FaWhatsapp className="text-2xl" />
+                    <span className="font-semibold">WhatsApp</span>
+                  </Link>
+                </div>
               </div>
             </div>
           </NavbarCollapse>

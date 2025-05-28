@@ -1,4 +1,4 @@
-import { AnimatedElement } from "../../styles/AnimatedElement";
+import { AnimatedElement } from "../../../styles/AnimatedElement";
 
 interface ServiceCardProps {
   title: string;

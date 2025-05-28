@@ -14,7 +14,7 @@ const AboutSection = () => {
               <div className="-mx-3 flex h-full">
                 <div className="animate-on-scroll fade-in-right w-1/2 self-start px-3">
                   <Image
-                    className="hover-scale h-auto w-full rounded-lg object-cover shadow-lg transition-all dark:shadow-gray-700"
+                    className="hover-scale h-auto w-full object-cover shadow-lg transition-all dark:shadow-gray-700"
                     src="/about1.jpg"
                     alt="About Us"
                     width={500}
@@ -24,7 +24,7 @@ const AboutSection = () => {
                 </div>
                 <div className="animate-on-scroll fade-in-left w-1/2 self-end px-3">
                   <Image
-                    className="hover-scale h-auto w-full rounded-lg object-cover shadow-lg transition-all dark:shadow-gray-700"
+                    className="hover-scale h-auto w-full object-cover shadow-lg transition-all dark:shadow-gray-700"
                     src="/about2.jpg"
                     alt="About Us"
                     width={500}
@@ -50,7 +50,7 @@ const AboutSection = () => {
 
               {/* Experience box with list */}
               <div className="mb-4 flex items-center">
-                <div className="animate-on-scroll scale-in hover-shadow flex-shrink-0 rounded-lg bg-blue-900 p-8 transition-all dark:bg-gray-800">
+                <div className="animate-on-scroll scale-in hover-shadow flex-shrink-0 bg-blue-900 p-8 transition-all dark:bg-gray-800">
                   <h1 className="text-7xl font-bold text-orange-500">25</h1>
                   <h5 className="text-xl font-bold text-orange-500">Anos de</h5>
                   <h5 className="font-bold text-orange-500">Experiência</h5>
