@@ -1,146 +1,132 @@
-
 import { Accordion, AccordionContent, AccordionPanel, AccordionTitle } from "flowbite-react";
 
 export function AccordionFaq() {
   return (
-    <div className="flex">
-      <Accordion collapseAll>
-      <AccordionPanel>
-        <AccordionTitle>What is Flowbite?</AccordionTitle>
-        <AccordionContent>
-          <p className="mb-2 text-gray-500 dark:text-gray-400">
-            Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons,
-            dropdowns, modals, navbars, and more.
-          </p>
-          <p className="text-gray-500 dark:text-gray-400">
-            Check out this guide to learn how to&nbsp;
-            <a
-              href="https://flowbite.com/docs/getting-started/introduction/"
-              className="text-cyan-600 hover:underline dark:text-cyan-500"
-            >
-              get started&nbsp;
-            </a>
-            and start developing websites even faster with components on top of Tailwind CSS.
-          </p>
-        </AccordionContent>
-      </AccordionPanel>
-      <AccordionPanel>
-        <AccordionTitle>Is there a Figma file available?</AccordionTitle>
-        <AccordionContent>
-          <p className="mb-2 text-gray-500 dark:text-gray-400">
-            Flowbite is first conceptualized and designed using the Figma software so everything you see in the library
-            has a design equivalent in our Figma file.
-          </p>
-          <p className="text-gray-500 dark:text-gray-400">
-            Check out the
-            <a href="https://flowbite.com/figma/" className="text-cyan-600 hover:underline dark:text-cyan-500">
-              Figma design system
-            </a>
-            based on the utility classes from Tailwind CSS and components from Flowbite.
-          </p>
-        </AccordionContent>
-      </AccordionPanel>
-      <AccordionPanel>
-        <AccordionTitle>What are the differences between Flowbite and Tailwind UI?</AccordionTitle>
-        <AccordionContent>
-          <p className="mb-2 text-gray-500 dark:text-gray-400">
-            The main difference is that the core components from Flowbite are open source under the MIT license, whereas
-            Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone
-            components, whereas Tailwind UI offers sections of pages.
-          </p>
-          <p className="mb-2 text-gray-500 dark:text-gray-400">
-            However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as there is no
-            technical reason stopping you from using the best of two worlds.
-          </p>
-          <p className="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
-          <ul className="list-disc pl-5 text-gray-500 dark:text-gray-400">
-            <li>
-              <a href="https://flowbite.com/pro/" className="text-cyan-600 hover:underline dark:text-cyan-500">
-                Flowbite Pro
+    <div className="flex flex-col lg:flex-row gap-4 p-2">
+      <Accordion collapseAll className="bg-white shadow-md rounded-lg">
+        <AccordionPanel className="border-b border-blue-200">
+          <AccordionTitle className="text-blue-600 hover:text-orange-500 font-semibold">
+            O que é Flowbite?
+          </AccordionTitle>
+          <AccordionContent className="p-4">
+            <p className="mb-2 text-gray-800 dark:text-gray-300">
+              Flowbite é uma biblioteca de componentes interativos de código aberto construída sobre o Tailwind CSS, incluindo botões, dropdowns, modais, barras de navegação e mais.
+            </p>
+            <p className="text-gray-800 dark:text-gray-300">
+              Confira este guia para aprender como 
+              <a href="https://flowbite.com/docs/getting-started/introduction/" className="text-orange-500 hover:underline">
+                começar 
               </a>
-            </li>
-            <li>
-              <a
-                href="https://tailwindui.com/"
-                rel="nofollow"
-                className="text-cyan-600 hover:underline dark:text-cyan-500"
-              >
-                Tailwind UI
+              e desenvolver sites ainda mais rápido com componentes baseados no Tailwind CSS.
+            </p>
+          </AccordionContent>
+        </AccordionPanel>
+        <AccordionPanel className="border-b border-blue-200">
+          <AccordionTitle className="text-blue-600 hover:text-orange-500 font-semibold">
+            Existe um arquivo Figma disponível?
+          </AccordionTitle>
+          <AccordionContent className="p-4">
+            <p className="mb-2 text-gray-800 dark:text-gray-300">
+              O Flowbite foi inicialmente projetado usando o software Figma, então tudo o que você vê na biblioteca tem um equivalente de design em nosso arquivo Figma.
+            </p>
+            <p className="text-gray-800 dark:text-gray-300">
+              Confira o 
+              <a href="https://flowbite.com/figma/" className="text-orange-500 hover:underline">
+                sistema de design Figma
               </a>
-            </li>
-          </ul>
-        </AccordionContent>
-      </AccordionPanel>
-    </Accordion>
-    <Accordion collapseAll>
-      <AccordionPanel>
-        <AccordionTitle>What is Flowbite?</AccordionTitle>
-        <AccordionContent>
-          <p className="mb-2 text-gray-500 dark:text-gray-400">
-            Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons,
-            dropdowns, modals, navbars, and more.
-          </p>
-          <p className="text-gray-500 dark:text-gray-400">
-            Check out this guide to learn how to&nbsp;
-            <a
-              href="https://flowbite.com/docs/getting-started/introduction/"
-              className="text-cyan-600 hover:underline dark:text-cyan-500"
-            >
-              get started&nbsp;
-            </a>
-            and start developing websites even faster with components on top of Tailwind CSS.
-          </p>
-        </AccordionContent>
-      </AccordionPanel>
-      <AccordionPanel>
-        <AccordionTitle>Is there a Figma file available?</AccordionTitle>
-        <AccordionContent>
-          <p className="mb-2 text-gray-500 dark:text-gray-400">
-            Flowbite is first conceptualized and designed using the Figma software so everything you see in the library
-            has a design equivalent in our Figma file.
-          </p>
-          <p className="text-gray-500 dark:text-gray-400">
-            Check out the
-            <a href="https://flowbite.com/figma/" className="text-cyan-600 hover:underline dark:text-cyan-500">
-              Figma design system
-            </a>
-            based on the utility classes from Tailwind CSS and components from Flowbite.
-          </p>
-        </AccordionContent>
-      </AccordionPanel>
-      <AccordionPanel>
-        <AccordionTitle>What are the differences between Flowbite and Tailwind UI?</AccordionTitle>
-        <AccordionContent>
-          <p className="mb-2 text-gray-500 dark:text-gray-400">
-            The main difference is that the core components from Flowbite are open source under the MIT license, whereas
-            Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone
-            components, whereas Tailwind UI offers sections of pages.
-          </p>
-          <p className="mb-2 text-gray-500 dark:text-gray-400">
-            However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as there is no
-            technical reason stopping you from using the best of two worlds.
-          </p>
-          <p className="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
-          <ul className="list-disc pl-5 text-gray-500 dark:text-gray-400">
-            <li>
-              <a href="https://flowbite.com/pro/" className="text-cyan-600 hover:underline dark:text-cyan-500">
-                Flowbite Pro
+              baseado nas classes utilitárias do Tailwind CSS e componentes do Flowbite.
+            </p>
+          </AccordionContent>
+        </AccordionPanel>
+        <AccordionPanel className="border-b border-blue-200">
+          <AccordionTitle className="text-blue-600 hover:text-orange-500 font-semibold">
+            Quais são as diferenças entre Flowbite e Tailwind UI?
+          </AccordionTitle>
+          <AccordionContent className="p-4">
+            <p className="mb-2 text-gray-800 dark:text-gray-300">
+              A principal diferença é que os componentes principais do Flowbite são de código aberto sob a licença MIT, enquanto o Tailwind UI é um produto pago. Outra diferença é que o Flowbite utiliza componentes menores e independentes, enquanto o Tailwind UI oferece seções de páginas.
+            </p>
+            <p className="mb-2 text-gray-800 dark:text-gray-300">
+              No entanto, recomendamos usar tanto o Flowbite, Flowbite Pro quanto o Tailwind UI, pois não há razão técnica que impeça o uso do melhor dos dois mundos.
+            </p>
+            <p className="mb-2 text-gray-800 dark:text-gray-300">Saiba mais sobre essas tecnologias:</p>
+            <ul className="list-disc pl-5 text-gray-800 dark:text-gray-300">
+              <li>
+                <a href="https://flowbite.com/pro/" className="text-orange-500 hover:underline">
+                  Flowbite Pro
+                </a>
+              </li>
+              <li>
+                <a href="https://tailwindui.com/" rel="nofollow" className="text-orange-500 hover:underline">
+                  Tailwind UI
+                </a>
+              </li>
+            </ul>
+          </AccordionContent>
+        </AccordionPanel>
+      </Accordion>
+      <Accordion collapseAll className="bg-white shadow-md rounded-lg">
+        <AccordionPanel className="border-b border-blue-200">
+          <AccordionTitle className="text-blue-600 hover:text-orange-500 font-semibold">
+            O que é Flowbite?
+          </AccordionTitle>
+          <AccordionContent className="p-4">
+            <p className="mb-2 text-gray-800 dark:text-gray-300">
+              Flowbite é uma biblioteca de componentes interativos de código aberto construída sobre o Tailwind CSS, incluindo botões, dropdowns, modais, barras de navegação e mais.
+            </p>
+            <p className="text-gray-800 dark:text-gray-300">
+              Confira este guia para aprender como 
+              <a href="https://flowbite.com/docs/getting-started/introduction/" className="text-orange-500 hover:underline">
+                começar 
               </a>
-            </li>
-            <li>
-              <a
-                href="https://tailwindui.com/"
-                rel="nofollow"
-                className="text-cyan-600 hover:underline dark:text-cyan-500"
-              >
-                Tailwind UI
+              e desenvolver sites ainda mais rápido com componentes baseados no Tailwind CSS.
+            </p>
+          </AccordionContent>
+        </AccordionPanel>
+        <AccordionPanel className="border-b border-blue-200">
+          <AccordionTitle className="text-blue-600 hover:text-orange-500 font-semibold">
+            Existe um arquivo Figma disponível?
+          </AccordionTitle>
+          <AccordionContent className="p-4">
+            <p className="mb-2 text-gray-800 dark:text-gray-300">
+              O Flowbite foi inicialmente projetado usando o software Figma, então tudo o que você vê na biblioteca tem um equivalente de design em nosso arquivo Figma.
+            </p>
+            <p className="text-gray-800 dark:text-gray-300">
+              Confira o 
+              <a href="https://flowbite.com/figma/" className="text-orange-500 hover:underline">
+                sistema de design Figma
               </a>
-            </li>
-          </ul>
-        </AccordionContent>
-      </AccordionPanel>
-    </Accordion>
+              baseado nas classes utilitárias do Tailwind CSS e componentes do Flowbite.
+            </p>
+          </AccordionContent>
+        </AccordionPanel>
+        <AccordionPanel className="border-b border-blue-200">
+          <AccordionTitle className="text-blue-600 hover:text-orange-500 font-semibold">
+            Quais são as diferenças entre Flowbite e Tailwind UI?
+          </AccordionTitle>
+          <AccordionContent className="p-4">
+            <p className="mb-2 text-gray-800 dark:text-gray-300">
+              A principal diferença é que os componentes principais do Flowbite são de código aberto sob a licença MIT, enquanto o Tailwind UI é um produto pago. Outra diferença é que o Flowbite utiliza componentes menores e independentes, enquanto o Tailwind UI oferece seções de páginas.
+            </p>
+            <p className="mb-2 text-gray-800 dark:text-gray-300">
+              No entanto, recomendamos usar tanto o Flowbite, Flowbite Pro quanto o Tailwind UI, pois não há razão técnica que impeça o uso do melhor dos dois mundos.
+            </p>
+            <p className="mb-2 text-gray-800 dark:text-gray-300">Saiba mais sobre essas tecnologias:</p>
+            <ul className="list-disc pl-5 text-gray-800 dark:text-gray-300">
+              <li>
+                <a href="https://flowbite.com/pro/" className="text-orange-500 hover:underline">
+                  Flowbite Pro
+                </a>
+              </li>
+              <li>
+                <a href="https://tailwindui.com/" rel="nofollow" className="text-orange-500 hover:underline">
+                  Tailwind UI
+                </a>
+              </li>
+            </ul>
+          </AccordionContent>
+        </AccordionPanel>
+      </Accordion>
     </div>
-    
   );
 }

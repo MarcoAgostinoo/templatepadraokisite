@@ -99,7 +99,7 @@ export default function FactsSection() {
           {facts.map((fact, idx) => (
             <div
               key={fact.label}
-              className="animate-on-scroll fade-in-up hover-scale flex w-full max-w-xs min-w-[200px] flex-1 items-center justify-center rounded-lg border border-gray-700 bg-transparent p-4 text-center transition-all sm:w-[calc(50%-1rem)] sm:min-w-[250px] sm:p-8 lg:w-[calc(25%-1.5rem)] dark:border-gray-600"
+              className="animate-on-scroll fade-in-up hover-scale flex w-full max-w-xs min-w-[200px] flex-1 items-center justify-center border border-gray-700 bg-transparent p-4 text-center transition-all sm:w-[calc(50%-1rem)] sm:min-w-[250px] sm:p-8 lg:w-[calc(25%-1.5rem)] dark:border-gray-600"
             >
               <div className="flex flex-col items-center justify-center">
                 {fact.icon}

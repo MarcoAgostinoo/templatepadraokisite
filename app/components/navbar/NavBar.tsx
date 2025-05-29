@@ -110,7 +110,7 @@ export function NavBar() {
             {mounted && (
               <button
                 onClick={toggleTheme}
-                className="rounded-full bg-white/10 p-2 transition-all hover:scale-110 hover:bg-gray-100 focus:ring-2 focus:ring-blue-300 focus:outline-none dark:bg-gray-800/50 dark:hover:bg-gray-700 dark:focus:ring-blue-600"
+                className="rounded-full border-2 border-white bg-white/10 p-2 transition-all hover:scale-110 hover:bg-gray-100 focus:ring-2 focus:ring-blue-300 focus:outline-none dark:border-gray-200 dark:bg-gray-100/50 dark:hover:bg-gray-700 dark:focus:ring-blue-600"
               >
                 {theme === "dark" ? (
                   <HiSun className="h-5 w-5 text-gray-800 dark:text-gray-200" />
@@ -135,7 +135,13 @@ export function NavBar() {
             </div>
 
             {/* Mobile Menu Toggle */}
-            <NavbarToggle className="transition-all hover:scale-110 lg:hidden" />
+            <NavbarToggle
+              className={`border-2 transition-all hover:scale-110 lg:hidden ${
+                isScrolled
+                  ? "border-gray-800 text-gray-800 dark:border-gray-200 dark:text-gray-200"
+                  : "border-white text-white dark:border-gray-200 dark:text-gray-200"
+              }`}
+            />
           </div>
 
           <NavbarCollapse className="lg:order-1 lg:flex">

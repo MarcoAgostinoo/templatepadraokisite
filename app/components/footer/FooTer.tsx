@@ -8,11 +8,11 @@ import {
 
 export function FooTer() {
   return (
-    <footer className="bg-gradient-to-b from-blue-900 to-blue-800 text-white">
+    <footer className="w-full bg-gradient-to-b from-blue-900 to-blue-800 text-white">
       <div className="container mx-auto grid grid-cols-1 gap-10 px-6 py-12 md:grid-cols-4">
         {/* Nosso Escritório */}
         <div>
-          <h4 className="mb-4 text-lg font-semibold uppercase tracking-wide">
+          <h4 className="mb-4 text-lg font-semibold tracking-wide uppercase">
             Nosso Escritório
           </h4>
           <p className="mb-2 flex items-center text-sm">
@@ -48,28 +48,28 @@ export function FooTer() {
           <div className="mt-4 flex space-x-4">
             <a
               href="#"
-              className="text-white hover:text-orange-400 transition-colors"
+              className="text-white transition-colors hover:text-orange-400"
               aria-label="Twitter"
             >
               <FaTwitter className="h-5 w-5" />
             </a>
             <a
               href="#"
-              className="text-white hover:text-orange-400 transition-colors"
+              className="text-white transition-colors hover:text-orange-400"
               aria-label="Facebook"
             >
               <FaFacebookF className="h-5 w-5" />
             </a>
             <a
               href="#"
-              className="text-white hover:text-orange-400 transition-colors"
+              className="text-white transition-colors hover:text-orange-400"
               aria-label="Instagram"
             >
               <FaInstagram className="h-5 w-5" />
             </a>
             <a
               href="#"
-              className="text-white hover:text-orange-400 transition-colors"
+              className="text-white transition-colors hover:text-orange-400"
               aria-label="LinkedIn"
             >
               <FaLinkedinIn className="h-5 w-5" />
@@ -79,47 +79,32 @@ export function FooTer() {
 
         {/* Links Rápidos */}
         <div>
-          <h4 className="mb-4 text-lg font-semibold uppercase tracking-wide">
+          <h4 className="mb-4 text-lg font-semibold tracking-wide uppercase">
             Links Rápidos
           </h4>
           <ul className="space-y-2 text-sm">
             <li>
-              <a
-                href="#"
-                className="hover:text-orange-400 transition-colors"
-              >
+              <a href="#" className="transition-colors hover:text-orange-400">
                 Sobre Nós
               </a>
             </li>
             <li>
-              <a
-                href="#"
-                className="hover:text-orange-400 transition-colors"
-              >
+              <a href="#" className="transition-colors hover:text-orange-400">
                 Contato
               </a>
             </li>
             <li>
-              <a
-                href="#"
-                className="hover:text-orange-400 transition-colors"
-              >
+              <a href="#" className="transition-colors hover:text-orange-400">
                 Nossos Serviços
               </a>
             </li>
             <li>
-              <a
-                href="#"
-                className="hover:text-orange-400 transition-colors"
-              >
+              <a href="#" className="transition-colors hover:text-orange-400">
                 Termos &amp; Condições
               </a>
             </li>
             <li>
-              <a
-                href="#"
-                className="hover:text-orange-400 transition-colors"
-              >
+              <a href="#" className="transition-colors hover:text-orange-400">
                 Suporte
               </a>
             </li>
@@ -128,12 +113,13 @@ export function FooTer() {
 
         {/* Horário de Funcionamento */}
         <div>
-          <h4 className="mb-4 text-lg font-semibold uppercase tracking-wide">
+          <h4 className="mb-4 text-lg font-semibold tracking-wide uppercase">
             Horário de Funcionamento
           </h4>
           <ul className="space-y-2 text-sm">
             <li>
-              <span className="font-medium">Segunda - Sexta:</span> 09:00 - 19:00
+              <span className="font-medium">Segunda - Sexta:</span> 09:00 -
+              19:00
             </li>
             <li>
               <span className="font-medium">Sábado:</span> 09:00 - 12:00
@@ -146,7 +132,7 @@ export function FooTer() {
 
         {/* Boletim Informativo */}
         <div>
-          <h4 className="mb-4 text-lg font-semibold uppercase tracking-wide">
+          <h4 className="mb-4 text-lg font-semibold tracking-wide uppercase">
             Boletim Informativo
           </h4>
           <p className="mb-4 text-sm">
@@ -156,11 +142,11 @@ export function FooTer() {
             <input
               type="email"
               placeholder="Seu e-mail"
-              className="w-full px-4 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-orange-400"
+              className="w-full px-4 py-2 text-gray-800 focus:ring-2 focus:ring-orange-400 focus:outline-none"
             />
             <button
               type="submit"
-              className="mt-2 bg-orange-500 px-4 py-2 text-white hover:bg-orange-600 transition-colors sm:ml-2 sm:mt-0"
+              className="mt-2 bg-orange-500 px-4 py-2 text-white transition-colors hover:bg-orange-600 sm:mt-0 sm:ml-2"
             >
               Inscrever-se
             </button>
