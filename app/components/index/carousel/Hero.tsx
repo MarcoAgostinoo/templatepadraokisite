@@ -84,7 +84,7 @@ export function Hero() {
   }
 
   return (
-    <div className="h-screen w-full">
+    <div className="h-screen w-full bg-gradient-to-b from-gray-900 to-gray-800 dark:from-gray-900 dark:to-gray-800">
       <Swiper
         spaceBetween={0}
         centeredSlides={true}

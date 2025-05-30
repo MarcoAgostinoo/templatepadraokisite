@@ -51,7 +51,7 @@ export default function FactsSection() {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 },
+      { threshold: 0.4 },
     );
 
     const element = document.querySelector("#facts-section");
@@ -93,9 +93,9 @@ export default function FactsSection() {
     <ThemeProvider>
       <div
         id="facts-section"
-        className="my-8 flex min-h-[400px] w-full items-center justify-center bg-blue-900 px-4 py-8 sm:my-12 sm:h-96 sm:px-2 sm:py-12 dark:bg-gray-800"
+        className="flex min-h-[400px] w-full items-center justify-center bg-blue-900 px-4 sm:h-96 sm:px-2 dark:bg-gradient-to-b dark:from-gray-800 dark:to-gray-900"
       >
-        <div className="mx-auto mt-4 flex max-w-7xl flex-wrap items-center justify-center gap-4 sm:gap-8">
+        <div className="mx-auto4 flex max-w-7xl flex-wrap items-center justify-center gap-4 sm:gap-8">
           {facts.map((fact, idx) => (
             <div
               key={fact.label}

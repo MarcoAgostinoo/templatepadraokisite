@@ -19,9 +19,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                  document.documentElement.classList.add('dark')
+                } else {
+                  document.documentElement.classList.remove('dark')
+                }
+              } catch (_) {}
+            `,
+          }}
+        />
+      </head>
       <body
-        className={`${inter.className} bg-white text-gray-900 dark:bg-gray-700 dark:text-white`}
+        className={`${inter.className} bg-white text-gray-900 dark:from-gray-800 dark:to-gray-900 dark:text-white`}
       >
         <NavBar />
         {children}
@@ -41,7 +56,7 @@ export default function RootLayout({
                     });
                   },
                   {
-                    threshold: 0.1,
+                    threshold: 0.5,
                     rootMargin: '50px',
                   }
                 );

@@ -13,7 +13,7 @@ export function initAnimations() {
       });
     },
     {
-      threshold: 0.2,
+      threshold: 0.5,
       rootMargin: "50px",
     },
   );
@@ -55,7 +55,7 @@ export function addAnimationToElement(
       });
     },
     {
-      threshold: 0.2,
+      threshold: 0.5,
       rootMargin: "50px",
     },
   );
@@ -83,7 +83,7 @@ export function initElementAnimations(selector: string) {
       });
     },
     {
-      threshold: 0.2,
+      threshold: 0.5,
       rootMargin: "0px",
     },
   );

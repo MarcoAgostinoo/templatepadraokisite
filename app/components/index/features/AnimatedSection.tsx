@@ -6,7 +6,7 @@ const ServiceCard = lazy(() => import("./ServiceCard"));
 
 export const AnimatedSection = () => {
   return (
-    <section className="bg-gray-50 px-4 py-16 dark:bg-gray-900">
+    <section className="bg-gray-50 px-4 py-16 dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-800">
       <div className="mx-auto max-w-6xl space-y-16">
         {/* Título com animação fade-in-up */}
         <AnimatedElement
@@ -70,7 +70,7 @@ export const AnimatedSection = () => {
           animationClass="fade-in-down"
           delayClass="delay-500"
           durationClass="duration-700"
-          className=" bg-blue-900 p-8 text-center text-white dark:bg-blue-800"
+          className="bg-blue-900 p-8 text-center text-white dark:bg-blue-900"
         >
           <h3 className="mb-4 text-2xl font-bold">
             Comece seu projeto hoje mesmo
@@ -78,7 +78,7 @@ export const AnimatedSection = () => {
           <p className="mb-6">
             Transforme suas ideias em realidade com nossa equipe especializada
           </p>
-          <button className=" bg-orange-500 px-6 py-2 font-semibold text-white transition-colors hover:bg-orange-600">
+          <button className="bg-orange-500 px-6 py-2 font-semibold text-white transition-colors hover:bg-orange-600">
             Fale Conosco
           </button>
         </AnimatedElement>

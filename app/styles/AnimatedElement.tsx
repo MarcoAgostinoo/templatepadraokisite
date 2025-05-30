@@ -22,7 +22,7 @@ export const AnimatedElement: FC<AnimatedElementProps> = ({
   children,
   animationClass,
   className = "",
-  threshold = 0.1,
+  threshold = 0.4,
   triggerOnce = true,
   delayClass = "",
   durationClass = "",

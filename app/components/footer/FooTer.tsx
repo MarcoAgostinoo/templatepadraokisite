@@ -8,7 +8,7 @@ import {
 
 export function FooTer() {
   return (
-    <footer className="w-full bg-gradient-to-b from-blue-900 to-blue-800 text-white">
+    <footer className="w-full bg-gradient-to-b from-blue-900 to-blue-800 text-white dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto grid grid-cols-1 gap-10 px-6 py-12 md:grid-cols-4">
         {/* Nosso Escritório */}
         <div>
@@ -17,7 +17,7 @@ export function FooTer() {
           </h4>
           <p className="mb-2 flex items-center text-sm">
             <svg
-              className="mr-2 h-4 w-4 text-orange-400"
+              className="mr-2 h-4 w-4 text-orange-400 dark:text-orange-500"
               fill="currentColor"
               viewBox="0 0 20 20"
             >
@@ -27,7 +27,7 @@ export function FooTer() {
           </p>
           <p className="mb-2 flex items-center text-sm">
             <svg
-              className="mr-2 h-4 w-4 text-orange-400"
+              className="mr-2 h-4 w-4 text-orange-400 dark:text-orange-500"
               fill="currentColor"
               viewBox="0 0 20 20"
             >
@@ -37,7 +37,7 @@ export function FooTer() {
           </p>
           <p className="mb-4 flex items-center text-sm">
             <svg
-              className="mr-2 h-4 w-4 text-orange-400"
+              className="mr-2 h-4 w-4 text-orange-400 dark:text-orange-500"
               fill="currentColor"
               viewBox="0 0 20 20"
             >
@@ -48,28 +48,28 @@ export function FooTer() {
           <div className="mt-4 flex space-x-4">
             <a
               href="#"
-              className="text-white transition-colors hover:text-orange-400"
+              className="text-white transition-colors hover:text-orange-400 dark:hover:text-orange-500"
               aria-label="Twitter"
             >
               <FaTwitter className="h-5 w-5" />
             </a>
             <a
               href="#"
-              className="text-white transition-colors hover:text-orange-400"
+              className="text-white transition-colors hover:text-orange-400 dark:hover:text-orange-500"
               aria-label="Facebook"
             >
               <FaFacebookF className="h-5 w-5" />
             </a>
             <a
               href="#"
-              className="text-white transition-colors hover:text-orange-400"
+              className="text-white transition-colors hover:text-orange-400 dark:hover:text-orange-500"
               aria-label="Instagram"
             >
               <FaInstagram className="h-5 w-5" />
             </a>
             <a
               href="#"
-              className="text-white transition-colors hover:text-orange-400"
+              className="text-white transition-colors hover:text-orange-400 dark:hover:text-orange-500"
               aria-label="LinkedIn"
             >
               <FaLinkedinIn className="h-5 w-5" />
@@ -84,27 +84,42 @@ export function FooTer() {
           </h4>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="#" className="transition-colors hover:text-orange-400">
+              <a
+                href="#"
+                className="transition-colors hover:text-orange-400 dark:hover:text-orange-500"
+              >
                 Sobre Nós
               </a>
             </li>
             <li>
-              <a href="#" className="transition-colors hover:text-orange-400">
+              <a
+                href="#"
+                className="transition-colors hover:text-orange-400 dark:hover:text-orange-500"
+              >
                 Contato
               </a>
             </li>
             <li>
-              <a href="#" className="transition-colors hover:text-orange-400">
+              <a
+                href="#"
+                className="transition-colors hover:text-orange-400 dark:hover:text-orange-500"
+              >
                 Nossos Serviços
               </a>
             </li>
             <li>
-              <a href="#" className="transition-colors hover:text-orange-400">
+              <a
+                href="#"
+                className="transition-colors hover:text-orange-400 dark:hover:text-orange-500"
+              >
                 Termos &amp; Condições
               </a>
             </li>
             <li>
-              <a href="#" className="transition-colors hover:text-orange-400">
+              <a
+                href="#"
+                className="transition-colors hover:text-orange-400 dark:hover:text-orange-500"
+              >
                 Suporte
               </a>
             </li>
@@ -142,11 +157,11 @@ export function FooTer() {
             <input
               type="email"
               placeholder="Seu e-mail"
-              className="w-full px-4 py-2 text-gray-800 focus:ring-2 focus:ring-orange-400 focus:outline-none"
+              className="w-full px-4 py-2 text-gray-800 focus:ring-2 focus:ring-orange-400 focus:outline-none dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:ring-orange-500"
             />
             <button
               type="submit"
-              className="mt-2 bg-orange-500 px-4 py-2 text-white transition-colors hover:bg-orange-600 sm:mt-0 sm:ml-2"
+              className="mt-2 bg-orange-500 px-4 py-2 text-white transition-colors hover:bg-orange-600 sm:mt-0 sm:ml-2 dark:bg-orange-600 dark:hover:bg-orange-700"
             >
               Inscrever-se
             </button>
@@ -155,7 +170,7 @@ export function FooTer() {
       </div>
 
       {/* Copyright */}
-      <div className="border-t border-blue-700 py-6 text-center text-sm text-gray-300">
+      <div className="border-t border-blue-700 py-6 text-center text-sm text-gray-300 dark:border-gray-700">
         <p>
           &copy; {new Date().getFullYear()} Nome do Seu Site. Todos os direitos
           reservados.
@@ -164,7 +179,7 @@ export function FooTer() {
           Desenvolvido por{" "}
           <a
             href="https://kisite.com.br"
-            className="text-orange-400 hover:underline"
+            className="text-orange-400 hover:underline dark:text-orange-500"
           >
             KiSite Soluções Web
           </a>

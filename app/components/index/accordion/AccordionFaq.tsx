@@ -2,7 +2,7 @@ import { Accordion, AccordionContent, AccordionPanel, AccordionTitle } from "flo
 
 export function AccordionFaq() {
   return (
-    <div className="flex flex-col lg:flex-row gap-4 p-2">
+    <div className="flex mt-14 mb-14 flex-col lg:flex-row gap-4 p-2">
       <Accordion collapseAll className="bg-white shadow-md rounded-lg">
         <AccordionPanel className="border-b border-blue-200">
           <AccordionTitle className="text-blue-600 hover:text-orange-500 font-semibold">

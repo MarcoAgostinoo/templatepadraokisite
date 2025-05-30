@@ -7,7 +7,7 @@ interface UseIntersectionObserverProps {
 }
 
 export const useIntersectionObserver = ({
-  threshold = 0.3,
+  threshold = 0.5,
   rootMargin = "0px",
   onIntersect,
 }: UseIntersectionObserverProps = {}) => {

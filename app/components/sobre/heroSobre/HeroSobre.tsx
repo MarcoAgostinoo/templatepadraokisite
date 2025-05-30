@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function HeroSobre() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex flex-col">
       <section
-        className="relative flex-grow bg-white pt-20 pb-0 sm:pt-28 sm:pb-0 lg:pt-32 lg:pb-0  xl:pt-40 xl:pb-0 dark:bg-gray-900"
+        className="relative flex-grow bg-white pt-20 pb-0 sm:pt-28 sm:pb-0 lg:pt-32 lg:pb-0 xl:pt-40 xl:pb-0 dark:bg-gray-900"
         style={{
           backgroundImage: "url(/sobre.png)",
           backgroundSize: "cover",

@@ -7,6 +7,7 @@ import {
 } from "flowbite-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation"; // <-- Importe usePathname
 import {
   FaInstagram,
   FaFacebook,
@@ -21,6 +22,7 @@ export function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname(); // <-- Obtenha o caminho da URL atual
 
   useEffect(() => {
     setMounted(true);
@@ -88,7 +90,7 @@ export function NavBar() {
         fluid
         className={`fixed z-50 h-20 w-full transition-all duration-300 ${
           isScrolled
-            ? "top-0 bg-white/90 text-black shadow-lg backdrop-blur-sm dark:bg-gray-900/90"
+            ? "top-0 bg-white/90 text-black shadow-lg backdrop-blur-sm dark:bg-gray-900/95 dark:shadow-gray-800/20"
             : "top-0 bg-transparent md:top-10 dark:bg-transparent"
         }`}
       >
@@ -99,7 +101,7 @@ export function NavBar() {
             className="animate-on-scroll fade-in-up"
           >
             <span
-              className={`bg-gradient-to-r ${isScrolled ? "scroll-text-adjust from-orange-400 to-orange-500" : "from-white to-white"} bg-clip-text text-4xl font-bold text-transparent brightness-110 contrast-125 filter transition-all duration-300 hover:scale-105 hover:from-blue-600 hover:to-indigo-600 hover:brightness-125 dark:from-blue-300 dark:to-indigo-200 dark:hover:from-blue-600 dark:hover:to-indigo-600`}
+              className={`bg-gradient-to-r ${isScrolled ? "scroll-text-adjust from-orange-400 to-orange-500" : "from-white to-white"} bg-clip-text text-4xl font-bold text-transparent brightness-110 contrast-125 filter transition-all duration-300 hover:scale-105 hover:from-blue-600 hover:to-indigo-600 hover:brightness-125 dark:from-blue-400 dark:to-indigo-300 dark:hover:from-blue-500 dark:hover:to-indigo-400`}
             >
               KiSite
             </span>
@@ -110,10 +112,10 @@ export function NavBar() {
             {mounted && (
               <button
                 onClick={toggleTheme}
-                className="rounded-full border-2 border-white bg-white/10 p-2 transition-all hover:scale-110 hover:bg-gray-100 focus:ring-2 focus:ring-blue-300 focus:outline-none dark:border-gray-200 dark:bg-gray-100/50 dark:hover:bg-gray-700 dark:focus:ring-blue-600"
+                className="rounded-full border-2 border-white bg-white/10 p-2 transition-all hover:scale-110 hover:bg-gray-100 focus:ring-2 focus:ring-blue-300 focus:outline-none dark:border-gray-300 dark:bg-gray-800/50 dark:hover:bg-gray-700 dark:focus:ring-blue-600"
               >
                 {theme === "dark" ? (
-                  <HiSun className="h-5 w-5 text-gray-800 dark:text-gray-200" />
+                  <HiSun className="h-5 w-5 text-yellow-400 dark:text-yellow-300" />
                 ) : (
                   <HiMoon className="h-5 w-5 text-gray-800 dark:text-gray-200" />
                 )}
@@ -148,18 +150,18 @@ export function NavBar() {
             <div
               className={`mt-6 flex flex-col space-y-0 p-4 lg:mt-0 lg:flex-row lg:items-center lg:space-y-0 lg:space-x-16 ${
                 isScrolled
-                  ? "bg-white/90 lg:bg-transparent"
+                  ? "bg-white/90 lg:bg-transparent dark:bg-gray-900/95"
                   : "bg-black/70 lg:bg-transparent"
               }`}
             >
-              <NavItem href="/" isActive={true} isScrolled={isScrolled}>
+              <NavItem href="/" isActive={pathname === "/"} isScrolled={isScrolled}> {/* <-- Modificado */}
                 <span
                   className={`text-normal-adjust ${isScrolled ? "scroll-text-adjust" : ""}`}
                 >
-                  Home
+                  Início
                 </span>
               </NavItem>
-              <NavItem href="#about" isActive={false} isScrolled={isScrolled}>
+              <NavItem href="/p/sobre" isActive={pathname === "/p/sobre"} isScrolled={isScrolled}> {/* <-- Modificado */}
                 <span
                   className={`text-normal-adjust ${isScrolled ? "scroll-text-adjust" : ""}`}
                 >
@@ -167,8 +169,8 @@ export function NavBar() {
                 </span>
               </NavItem>
               <NavItem
-                href="#services"
-                isActive={false}
+                href="/p/servicos"
+                isActive={pathname === "/p/servicos"} // <-- Modificado
                 isScrolled={isScrolled}
               >
                 <span
@@ -177,14 +179,22 @@ export function NavBar() {
                   Serviços
                 </span>
               </NavItem>
-              <NavItem href="#pricing" isActive={false} isScrolled={isScrolled}>
+              <NavItem
+                href="/p/portifolio"
+                isActive={pathname === "/p/portifolio"} // <-- Modificado
+                isScrolled={isScrolled}
+              >
                 <span
                   className={`text-normal-adjust ${isScrolled ? "scroll-text-adjust" : ""}`}
                 >
                   Portifólio
                 </span>
               </NavItem>
-              <NavItem href="#contact" isActive={false} isScrolled={isScrolled}>
+              <NavItem
+                href="/p/contato"
+                isActive={pathname === "/p/contato"} // <-- Modificado
+                isScrolled={isScrolled}
+              >
                 <span
                   className={`text-normal-adjust ${isScrolled ? "scroll-text-adjust" : ""}`}
                 >
@@ -230,17 +240,17 @@ function NavItem({ href, children, isActive, isScrolled }: NavItemProps) {
       className={`group relative block py-2 text-lg font-semibold transition-all hover:scale-105 lg:py-1 ${
         isScrolled
           ? isActive
-            ? "text-blue-700 drop-shadow-[0_1px_2px_rgba(0,0,0,0.1)] dark:text-black lg:dark:text-blue-300"
-            : "text-gray-900 drop-shadow-[0_1px_2px_rgba(0,0,0,0.1)] hover:text-blue-900 dark:text-black dark:hover:text-blue-400 lg:dark:text-white"
+            ? "text-blue-700 drop-shadow-[0_1px_2px_rgba(0,0,0,0.1)] dark:text-blue-400"
+            : "text-gray-900 drop-shadow-[0_1px_2px_rgba(0,0,0,0.1)] hover:text-blue-900 dark:text-gray-100 dark:hover:text-blue-300"
           : isActive
             ? "font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
-            : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] hover:text-gray-800"
+            : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] hover:text-gray-200"
       }`}
     >
       {children}
       <span
-        className={`absolute bottom-0 left-0 h-0.5 w-0 ${isScrolled ? "bg-blue-700 dark:bg-black lg:dark:bg-blue-800" : "bg-white"} transition-all duration-300 group-hover:w-full ${
-          isActive ? "w-full" : ""
+        className={`absolute bottom-0 left-0 h-0.5 ${isScrolled ? "bg-blue-700 dark:bg-blue-400" : "bg-white"} transition-all duration-300 ${
+          isActive ? "w-full" : "w-0 group-hover:w-full"
         }`}
       ></span>
     </Link>
